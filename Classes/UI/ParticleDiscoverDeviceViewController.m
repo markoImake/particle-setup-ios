@@ -441,7 +441,7 @@
                     if ([ParticleCloud sharedInstance].isAuthenticated)
                     {
                         // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@ to %@?",[ParticleSetupCustomization sharedInstance].deviceName,[ParticleCloud sharedInstance].loggedInUsername];
+                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@?",[ParticleSetupCustomization sharedInstance].deviceName];
                         self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
                         [self.checkConnectionTimer invalidate];
                         [self.changeOwnershipAlertView show];

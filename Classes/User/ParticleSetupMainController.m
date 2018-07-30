@@ -223,7 +223,8 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
 -(void)setupDidFinishObserver:(NSNotification *)note
 {
     // Setup finished so dismiss modal main controller and call delegate with state
-    
+    NSLog(@"setupDidFinishObserver");
+//    NSLog(self.delegate);
     NSDictionary *finishStateDict = note.userInfo;
     NSNumber* state = finishStateDict[kParticleSetupDidFinishStateKey];
     ParticleDevice *device = finishStateDict[kParticleSetupDidFinishDeviceKey];
@@ -232,15 +233,19 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidLogoutNotification object:nil];
     
-    
-    [self dismissViewControllerAnimated:YES completion:^{
+    NSLog(@"ABOUT TO CALL didFinishWithResult");
+//    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"setupDidFinishObserver");
         [self.delegate particleSetupViewController:self didFinishWithResult:[state integerValue] device:device]; // TODO: add NSError reporting?
         if ((!device) && (deviceID)) {
             if ([self.delegate respondsToSelector:@selector(particleSetupViewController:didNotSucceeedWithDeviceID:)]) {
                 [self.delegate particleSetupViewController:self didNotSucceeedWithDeviceID:deviceID];
             }
         }
-    }];
+//    }];
+    NSLog(@"ABOUT TO POP");
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 // viewcontroller container behaviour code
