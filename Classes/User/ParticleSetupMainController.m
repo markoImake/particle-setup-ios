@@ -233,19 +233,14 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kParticleSetupDidLogoutNotification object:nil];
     
-    NSLog(@"ABOUT TO CALL didFinishWithResult");
-//    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"setupDidFinishObserver");
+   [self dismissViewControllerAnimated:YES completion:^{
         [self.delegate particleSetupViewController:self didFinishWithResult:[state integerValue] device:device]; // TODO: add NSError reporting?
         if ((!device) && (deviceID)) {
             if ([self.delegate respondsToSelector:@selector(particleSetupViewController:didNotSucceeedWithDeviceID:)]) {
                 [self.delegate particleSetupViewController:self didNotSucceeedWithDeviceID:deviceID];
             }
         }
-//    }];
-    NSLog(@"ABOUT TO POP");
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 // viewcontroller container behaviour code
