@@ -65,12 +65,9 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
 
 +(UIImage *)loadImageFromResourceBundle:(NSString *)imageName
 {
-    NSLog(@"loadImageFromResourceBundle");
-    NSLog(@"%@", imageName);
+    NSBundle *bundle = [ParticleSetupMainController getResourcesBundle];
     NSString *imageFileName = [NSString stringWithFormat:@"%@.png",imageName];
-    NSLog(@"%@", imageFileName);
-    UIImage *image = [UIImage imageNamed:imageFileName];
-    NSLog(@"%@", image);
+    UIImage *image = [UIImage imageNamed:imageFileName inBundle:bundle compatibleWithTraitCollection:nil];
     return image;
 }
 
