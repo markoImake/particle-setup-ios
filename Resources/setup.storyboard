@@ -3739,7 +3739,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to set up your Conical Fermenter Controller!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S2-nZC">
-                                <rect key="frame" x="50" y="90" width="314" height="48"/>
+                                <rect key="frame" x="50" y="85" width="314" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -4285,7 +4285,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ldG-Y4-BA3" secondAttribute="trailing" constant="-16" id="oGF-pD-zfD">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
-                            <constraint firstItem="ecM-S2-nZC" firstAttribute="top" secondItem="vUh-Wu-dKe" secondAttribute="bottom" constant="70" id="pn2-Xh-szP"/>
+                            <constraint firstItem="ecM-S2-nZC" firstAttribute="top" secondItem="vUh-Wu-dKe" secondAttribute="bottom" constant="65" id="pn2-Xh-szP"/>
                             <constraint firstItem="kZE-3U-nVp" firstAttribute="top" secondItem="vUh-Wu-dKe" secondAttribute="bottom" constant="-4" id="qcX-hF-K7F">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
