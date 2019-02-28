@@ -100,7 +100,7 @@
     
     // new Bevie custom init
     if ([ParticleSetupCustomization sharedInstance].deviceName) {
-        self.timeToStartLabel.text = [NSString stringWithFormat:@"Time to set up your %@/ !", [ParticleSetupCustomization sharedInstance].deviceName];
+        self.timeToStartLabel.text = [NSString stringWithFormat:@"Time to set up your %@!", [ParticleSetupCustomization sharedInstance].deviceName];
     }
     if ([ParticleSetupCustomization sharedInstance].instructionStep1) {
         self.instructionStep1.text = [ParticleSetupCustomization sharedInstance].instructionStep1;
