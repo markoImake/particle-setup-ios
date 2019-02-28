@@ -66,7 +66,6 @@
 
 @property (nonatomic, strong) NSString *boldTextFontName;       // Customize setup font - include OTF/TTF file in project
 
-
 @property (nonatomic) CGFloat fontSizeOffset;                   // Set offset of font size so small/big fonts can be fine-adjusted
 
 @property (nonatomic, assign) BOOL organization __deprecated_msg("Use productMode instead");        // enable organizational mode
@@ -81,5 +80,10 @@
 @property (nonatomic, assign) BOOL allowPasswordManager;         // Display 1Password button next to password entry fields in login/signup
 @property (nonatomic, strong) NSString *skipAuthenticationMessage;    // Prompt to display to user when he's requesting to skip authentication
 @property (nonatomic) BOOL disableLogOutOption; // Do not allow the user to log out from the GetReady page.
+
+// New properties for Grainfather Customisation
+@property (nonatomic, strong) NSString *instructionStep1;
+@property (nonatomic, strong) NSString *instructionStep2;
+@property (nonatomic, strong) NSString *instructionStep3;
 
 @end

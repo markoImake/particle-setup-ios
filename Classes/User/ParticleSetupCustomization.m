@@ -96,6 +96,10 @@
         self.allowSkipAuthentication = NO;
         self.skipAuthenticationMessage = @"Skipping authentication will allow you to configure Wi-Fi credentials to your device but it will not be claimed to your account. Are you sure you want to skip authentication?";
         self.disableLogOutOption = NO;
+        
+        self.instructionStep1 = @"Attach your controller to a Conical Fermenter to power it on";
+        self.instructionStep2 = @"The device should be in connection mode. If it's not, use the menu to select 'Connection Config' and then 'Add Wifi'";
+        self.instructionStep3 = @"Make sure your iOS device is connected to the Internet";
         return self;
     }
     

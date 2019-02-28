@@ -42,6 +42,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelSetupButton;
 @property (weak, nonatomic) IBOutlet ParticleSetupUILabel *loggedInUserLabel;
 
+// new outlets - Bevie customise
+@property (weak, nonatomic) IBOutlet UILabel *timeToStartLabel;
+@property (weak, nonatomic) IBOutlet ParticleSetupUILabel *instructionStep1;
+@property (weak, nonatomic) IBOutlet ParticleSetupUILabel *instructionStep2;
+@property (weak, nonatomic) IBOutlet ParticleSetupUILabel *instructionStep3;
+
 @end
 
 @implementation ParticleGetReadyViewController
@@ -91,6 +97,21 @@
     if ([ParticleSetupCustomization sharedInstance].disableLogOutOption) {
         self.logoutButton.hidden = YES;
     }
+    
+    // new Bevie custom init
+    if ([ParticleSetupCustomization sharedInstance].deviceName) {
+        self.timeToStartLabel.text = [NSString stringWithFormat:@"Time to set up your %@/ !", [ParticleSetupCustomization sharedInstance].deviceName];
+    }
+    if ([ParticleSetupCustomization sharedInstance].instructionStep1) {
+        self.instructionStep1.text = [ParticleSetupCustomization sharedInstance].instructionStep1;
+    }
+    if ([ParticleSetupCustomization sharedInstance].instructionStep2) {
+        self.instructionStep2.text = [ParticleSetupCustomization sharedInstance].instructionStep2;
+    }
+    if ([ParticleSetupCustomization sharedInstance].instructionStep3) {
+        self.instructionStep3.text = [ParticleSetupCustomization sharedInstance].instructionStep3;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

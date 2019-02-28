@@ -3738,8 +3738,8 @@
                                     <navigationItem title="Device Setup" id="YVO-1B-91h"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to set up your Conical Fermenter Controller!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S2-nZC">
-                                <rect key="frame" x="50" y="85" width="314" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to set up your {device}!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S2-nZC">
+                                <rect key="frame" x="50" y="85" width="314" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -3751,7 +3751,7 @@
                                         <rect key="frame" x="0.0" y="118" width="374" height="118"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="esE-Ik-2G5">
-                                                <rect key="frame" x="0.0" y="28.666666666666686" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="49" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="iCa-De-h3T"/>
                                                     <constraint firstAttribute="width" constant="48" id="kIP-Uq-6eH">
@@ -3776,8 +3776,8 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The device should be in connection mode. If it's not, use the menu to select &quot;Connection Config&quot; and then &quot;Add Wifi&quot;" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-yI-y9u" customClass="ParticleSetupUILabel">
-                                                <rect key="frame" x="45" y="28.666666666666686" width="329" height="61"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{instructionStep2}" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHW-yI-y9u" customClass="ParticleSetupUILabel">
+                                                <rect key="frame" x="45" y="49" width="329" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -3835,7 +3835,7 @@
                                         <rect key="frame" x="0.0" y="236" width="374" height="118"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="itK-fn-V8g">
-                                                <rect key="frame" x="0.0" y="38.666666666666629" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="49" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="68" id="8oa-1L-QcN"/>
                                                     <constraint firstAttribute="width" constant="40" id="ECL-8q-4pe">
@@ -3860,8 +3860,8 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure your iOS device is connected to the Internet" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-An-sff" customClass="ParticleSetupUILabel">
-                                                <rect key="frame" x="45" y="38.666666666666629" width="329" height="40.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{instructionStep3}" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-An-sff" customClass="ParticleSetupUILabel">
+                                                <rect key="frame" x="45" y="49" width="329" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -3922,7 +3922,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="Azh-lU-IBk">
-                                                <rect key="frame" x="0.0" y="38.666666666666686" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="49" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="71" id="9Hc-BT-c6Q">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -3944,8 +3944,8 @@
                                                     </mask>
                                                 </variation>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach your controller to a Conical Fermenter to power it on" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7e-HY-AYj" customClass="ParticleSetupUILabel">
-                                                <rect key="frame" x="45" y="38.666666666666686" width="329" height="40.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{instructionStep1}" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7e-HY-AYj" customClass="ParticleSetupUILabel">
+                                                <rect key="frame" x="45" y="49" width="329" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4311,26 +4311,26 @@
                                 <exclude reference="2ys-oq-6AP"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="teM-uq-SgN"/>
+                                <exclude reference="yrB-AV-Pv8"/>
                                 <exclude reference="5cJ-Ic-2eu"/>
                                 <exclude reference="EiR-Ug-m8r"/>
                                 <exclude reference="oGF-pD-zfD"/>
-                                <exclude reference="teM-uq-SgN"/>
-                                <exclude reference="yrB-AV-Pv8"/>
                                 <exclude reference="12i-hG-M1u"/>
                                 <exclude reference="4Ra-NF-ZeN"/>
                                 <exclude reference="Yau-dy-lFo"/>
+                                <exclude reference="kxC-aR-8MR"/>
+                                <exclude reference="INY-dG-Ke2"/>
+                                <exclude reference="qcX-hF-K7F"/>
                                 <exclude reference="08j-Bi-dpM"/>
                                 <exclude reference="n9d-qU-yAx"/>
                                 <exclude reference="y2z-6K-YrV"/>
-                                <exclude reference="INY-dG-Ke2"/>
-                                <exclude reference="qcX-hF-K7F"/>
                                 <exclude reference="b55-e2-WTK"/>
+                                <exclude reference="76c-HT-3ca"/>
+                                <exclude reference="tHe-bM-L5Y"/>
                                 <exclude reference="3bd-Mk-KSK"/>
                                 <exclude reference="6LE-Fl-8tf"/>
                                 <exclude reference="j9v-OG-VVk"/>
-                                <exclude reference="76c-HT-3ca"/>
-                                <exclude reference="tHe-bM-L5Y"/>
-                                <exclude reference="kxC-aR-8MR"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -4345,26 +4345,26 @@
                                 <include reference="2ys-oq-6AP"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="teM-uq-SgN"/>
+                                <include reference="yrB-AV-Pv8"/>
                                 <include reference="5cJ-Ic-2eu"/>
                                 <include reference="EiR-Ug-m8r"/>
                                 <include reference="oGF-pD-zfD"/>
-                                <include reference="teM-uq-SgN"/>
-                                <include reference="yrB-AV-Pv8"/>
                                 <include reference="12i-hG-M1u"/>
                                 <include reference="4Ra-NF-ZeN"/>
                                 <include reference="Yau-dy-lFo"/>
+                                <include reference="kxC-aR-8MR"/>
+                                <include reference="INY-dG-Ke2"/>
+                                <include reference="qcX-hF-K7F"/>
                                 <include reference="08j-Bi-dpM"/>
                                 <include reference="n9d-qU-yAx"/>
                                 <include reference="y2z-6K-YrV"/>
-                                <include reference="INY-dG-Ke2"/>
-                                <include reference="qcX-hF-K7F"/>
                                 <include reference="b55-e2-WTK"/>
+                                <include reference="76c-HT-3ca"/>
+                                <include reference="tHe-bM-L5Y"/>
                                 <include reference="3bd-Mk-KSK"/>
                                 <include reference="6LE-Fl-8tf"/>
                                 <include reference="j9v-OG-VVk"/>
-                                <include reference="76c-HT-3ca"/>
-                                <include reference="tHe-bM-L5Y"/>
-                                <include reference="kxC-aR-8MR"/>
                             </mask>
                         </variation>
                     </view>
@@ -4372,12 +4372,16 @@
                     <connections>
                         <outlet property="brandImageView" destination="ldG-Y4-BA3" id="F24-3R-Y9R"/>
                         <outlet property="cancelSetupButton" destination="NXe-vV-Moq" id="yPK-ux-Mbh"/>
+                        <outlet property="instructionStep1" destination="m7e-HY-AYj" id="T2a-9v-GJv"/>
+                        <outlet property="instructionStep2" destination="oHW-yI-y9u" id="A4Y-m4-h2g"/>
+                        <outlet property="instructionStep3" destination="y1h-An-sff" id="SIU-s9-eLR"/>
                         <outlet property="loggedInLabel" destination="2ys-oq-6AP" id="ffy-Z0-AGK"/>
                         <outlet property="loggedInUserLabel" destination="2ys-oq-6AP" id="JEj-QU-quu"/>
                         <outlet property="logoutButton" destination="kZE-3U-nVp" id="Cqh-kc-kZa"/>
                         <outlet property="productImageView" destination="Dom-kg-WP6" id="MaW-SP-VoF"/>
                         <outlet property="readyButton" destination="UNy-JD-Bob" id="rdb-Dm-3Vu"/>
                         <outlet property="spinner" destination="Ald-Di-X3r" id="GZr-Bj-RKk"/>
+                        <outlet property="timeToStartLabel" destination="ecM-S2-nZC" id="74X-mr-6BN"/>
                         <outlet property="view" destination="xP3-D7-C6C" id="T4Z-8r-EFD"/>
                         <segue destination="DQd-hP-ryy" kind="show" identifier="discover" id="gy6-c9-WWy"/>
                     </connections>
