@@ -79,7 +79,7 @@
     if ((!isiPhone4) && (!isiPhone5))
         [self disableKeyboardMovesViewUp];
     
-    if (self.setupResult == ParticleSetupMainControllerResultSuccess)
+    if (self.setupResult == ParticleSetupMainControllerResultSuccess && ![ParticleSetupCustomization sharedInstance].skipRename)
     {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.nameDeviceTextField becomeFirstResponder];
