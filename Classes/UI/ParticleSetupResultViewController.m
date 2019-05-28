@@ -62,7 +62,7 @@
     self.nameDeviceTextField.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
 
     // init funny random device names
-    self.randomDeviceNamesArray = [NSArray arrayWithObjects:@"aardvark", @"bacon", @"badger", @"banjo", @"bobcat", @"boomer", @"captain", @"chicken", @"cowboy", @"maker", @"splendid", @"sparkling", @"dentist", @"doctor", @"green", @"easter", @"ferret", @"gerbil", @"hacker", @"hamster", @"wizard", @"hobbit", @"hoosier", @"hunter", @"jester", @"jetpack", @"kitty", @"laser", @"lawyer", @"mighty", @"monkey", @"morphing", @"mutant", @"narwhal", @"ninja", @"normal", @"penguin", @"pirate", @"pizza", @"plumber", @"power", @"puppy", @"ranger", @"raptor", @"robot", @"scraper", @"burrito", @"station", @"tasty", @"trochee", @"turkey", @"turtle", @"vampire", @"wombat", @"zombie", nil];
+//    self.randomDeviceNamesArray = [NSArray arrayWithObjects:@"aardvark", @"bacon", @"badger", @"banjo", @"bobcat", @"boomer", @"captain", @"chicken", @"cowboy", @"maker", @"splendid", @"sparkling", @"dentist", @"doctor", @"green", @"easter", @"ferret", @"gerbil", @"hacker", @"hamster", @"wizard", @"hobbit", @"hoosier", @"hunter", @"jester", @"jetpack", @"kitty", @"laser", @"lawyer", @"mighty", @"monkey", @"morphing", @"mutant", @"narwhal", @"ninja", @"normal", @"penguin", @"pirate", @"pizza", @"plumber", @"power", @"puppy", @"ranger", @"raptor", @"robot", @"scraper", @"burrito", @"station", @"tasty", @"trochee", @"turkey", @"turtle", @"vampire", @"wombat", @"zombie", nil];
     
     self.deviceNamed = NO;
 
@@ -102,12 +102,14 @@
             self.setupResultImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"success"];
             self.shortMessageLabel.text = @"Setup completed successfully";
             self.longMessageLabel.text = @"Congrats! You've successfully set up your {device}.";
+            if (![ParticleSetupCustomization sharedInstance].skipRename) {
+                self.nameDeviceLabel.hidden = NO;
+                self.nameDeviceTextField.hidden = NO;
+                //            NSString *randomDeviceName1 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
+                //            NSString *randomDeviceName2 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
+                self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+            }
             
-            self.nameDeviceLabel.hidden = NO;
-            self.nameDeviceTextField.hidden = NO;
-            NSString *randomDeviceName1 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
-            NSString *randomDeviceName2 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
-            self.nameDeviceTextField.text = [NSString stringWithFormat:@"%@_%@",randomDeviceName1,randomDeviceName2];
 #ifdef ANALYTICS
             [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Success"];
 #endif
@@ -212,15 +214,17 @@
     
     if (textField == self.nameDeviceTextField)
     {
-        [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
-            if (error) {
-                NSLog(@"Error naming device %@",error.description);
-            } else {
-                self.deviceNamed = YES;
-            }
-            [textField resignFirstResponder];
-            [self doneButtonTapped:self];
-        }];
+         if (![ParticleSetupCustomization sharedInstance].skipRename) {
+            [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
+                if (error) {
+                    NSLog(@"Error naming device %@",error.description);
+                } else {
+                    self.deviceNamed = YES;
+                }
+                [textField resignFirstResponder];
+                [self doneButtonTapped:self];
+            }];
+         }
         
     }
     
@@ -243,7 +247,7 @@
     if (self.setupResult == ParticleSetupMainControllerResultSuccess)
     {
      
-        if (!self.deviceNamed) {
+        if (!self.deviceNamed && ![ParticleSetupCustomization sharedInstance].skipRename) {
             [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
                 if (error) {
                     NSLog(@"error name device %@",error.description);

@@ -86,4 +86,7 @@
 @property (nonatomic, strong) NSString *instructionStep2;
 @property (nonatomic, strong) NSString *instructionStep3;
 
+@property (nonatomic, strong) NSString *deviceDefaultName;
+@property (nonatomic, strong) BOOL skipRename;
+
 @end

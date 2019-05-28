@@ -100,6 +100,9 @@
         self.instructionStep1 = @"Attach your controller to a Conical Fermenter to power it on";
         self.instructionStep2 = @"The device should be in connection mode. If it's not, use the menu to select 'Connection Config' and then 'Add Wifi'";
         self.instructionStep3 = @"Make sure your iOS device is connected to the Internet";
+        
+        self.skipRename = NO;
+        self.deviceDefaultName = @"Default-device-name";
         return self;
     }
     
