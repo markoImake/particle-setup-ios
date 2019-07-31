@@ -453,18 +453,26 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)getDeviceAndFinishSetup
 {
+    
+    NSLog(@"step 5 - getDeviceAndFinishSetup, getdevice...");
     // get the claimed device to report it back to the user
     [[ParticleCloud sharedInstance] getDevice:self.deviceID completion:^(ParticleDevice *device, NSError *error) {
         // --- Done ---
+        
+        NSLog(@"step 5 - getDeviceAndFinishSetup, gotDevice -");
+        NSLog(@"Device id:%@", object.id);
+        NSLog(@"Device id:%@", object.connected);
         if (!error)
         {
+            
+            NSLog(@"step 5 - getDeviceAndFinishSetup, gotDevice - !error");
             self.device = device;
             [self nextConnectionProgressState];
             
-            if (device.connected)
+//            if (device.connected)
                 self.setupResult = ParticleSetupMainControllerResultSuccess;
-            else
-                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
+//            else
+//                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
             
             if (self.gotStatusEventFromDevice) { // that means device is or was online and now probably OTAing which is fine
                 self.setupResult = ParticleSetupMainControllerResultSuccess;
