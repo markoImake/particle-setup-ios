@@ -82,11 +82,11 @@
         self.headerTextFontName = @"HelveticaNeue-Light";
         
         self.tintSetupImages = NO;
-        self.lightStatusAndNavBar = YES;
+        self.lightStatusAndNavBar = NO;
         
 //        self.organization = NO;
         self.productId = 0;
-        self.productMode = NO;
+        self.productMode = YES;
 //        self.organizationSlug = @"particle";
 //        self.organizationName = @"Particle";
 //        self.productSlug = @"photon";
