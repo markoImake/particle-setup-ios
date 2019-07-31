@@ -98,7 +98,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     self.connectionProgressTextList = [[NSMutableArray alloc] init];
     
     // set logo
-    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+//    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     // force load from resource bundle

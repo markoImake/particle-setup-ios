@@ -63,10 +63,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+//    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
-    UIColor *navBarButtonsColor = ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
+    UIColor *navBarButtonsColor = [UIColor whiteColor];
     [self.cancelSetupButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
     [self.logoutButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
     
