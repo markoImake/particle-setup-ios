@@ -66,7 +66,7 @@
 //    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
-    UIColor *navBarButtonsColor = [UIColor whiteColor];
+    UIColor *navBarButtonsColor = ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
     [self.cancelSetupButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
     [self.logoutButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
     

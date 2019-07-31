@@ -121,7 +121,7 @@
 //    self.cancelSetupButton. // customize color too
     self.cancelSetupButton.titleLabel.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].headerTextFontName size:self.self.cancelSetupButton.titleLabel.font.pointSize];
 //    [self.cancelSetupButton setTitleColor:[ParticleSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
-    UIColor *navBarButtonsColor = [UIColor whiteColor];
+    UIColor *navBarButtonsColor = ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
     [self.cancelSetupButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
 
 
