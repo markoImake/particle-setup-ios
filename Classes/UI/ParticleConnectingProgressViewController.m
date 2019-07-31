@@ -460,8 +460,8 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
         // --- Done ---
         
         NSLog(@"step 5 - getDeviceAndFinishSetup, gotDevice -");
-        NSLog(@"Device id:%@", object.id);
-        NSLog(@"Device id:%@", object.connected);
+        NSLog(@"Device id:%@", device.id);
+        NSLog(@"Device id:%@", device.connected);
         if (!error)
         {
             
