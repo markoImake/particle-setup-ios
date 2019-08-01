@@ -496,68 +496,68 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 -(void)checkDeviceIsClaimed // step 4
 {
     
-    NSLog(@"step 4 - checkDeviceIsClaimed");
+    NSLog(@"step 4 - checkDeviceIsClaimed, calling claimDevice...");
     // --- Claim device ---
-//    [[ParticleCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
-    if (self.gotStatusEventFromDevice) {
-        NSLog(@"received event from setup device, finishing setup successfully");
-        [self getDeviceAndFinishSetup];
-    }
-    
-    NSLog(@"step 4 - checkDeviceIsClaimed, calling getDevices with...");
-    NSLog(@"ParticleCloud sharedInstance].accessToken): %@",[ParticleCloud sharedInstance].accessToken);
-    [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
-        
-        NSLog(@"step 4 - checkDeviceIsClaimed, gotDevices");
-        BOOL deviceClaimed = NO;
-        if (devices)
-        {
-            for (ParticleDevice *device in devices)
-            {
-                NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
-                if ([device.id isEqualToString:self.deviceID])
-                {
-                    
-                    NSLog(@"step 4 - checkDeviceIsClaimed, [device.id isEqualToString:self.deviceID] - found the new device, it belongs to us!");
-                    // device now appear's in users claimed devices so it's claimed
-                    deviceClaimed = YES;
-                }
-            }
+    [[ParticleCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
+        NSLog(@"claimDevice completion error: %@", error);
+        if (self.gotStatusEventFromDevice) {
+            NSLog(@"received event from setup device, finishing setup successfully");
+            [self getDeviceAndFinishSetup];
         }
         
-        if ((error) || (!deviceClaimed))
-        {
+        NSLog(@"step 4 - checkDeviceIsClaimed, calling getDevices with...");
+        NSLog(@"ParticleCloud sharedInstance].accessToken): %@",[ParticleCloud sharedInstance].accessToken);
+        [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
             
-            NSLog(@"step 4 - if ((error) || (!deviceClaimed)) -> recursion retry");
-            self.claimRetries++;
-//            NSLog(@"Claim try %ld",(long)self.claimRetries);
-            if (self.claimRetries >= kMaxRetriesClaim-1)
+            NSLog(@"step 4 - checkDeviceIsClaimed, gotDevices");
+            BOOL deviceClaimed = NO;
+            if (devices)
             {
-                [self setCurrentConnectionProgressStateError:YES];
-                [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
+                for (ParticleDevice *device in devices)
+                {
+                    NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
+                    if ([device.id isEqualToString:self.deviceID])
+                    {
+                        
+                        NSLog(@"step 4 - checkDeviceIsClaimed, [device.id isEqualToString:self.deviceID] - found the new device, it belongs to us!");
+                        // device now appear's in users claimed devices so it's claimed
+                        deviceClaimed = YES;
+                    }
+                }
+            }
+            
+            if ((error) || (!deviceClaimed))
+            {
+                
+                NSLog(@"step 4 - if ((error) || (!deviceClaimed)) -> recursion retry");
+                self.claimRetries++;
+                //            NSLog(@"Claim try %ld",(long)self.claimRetries);
+                if (self.claimRetries >= kMaxRetriesClaim-1)
+                {
+                    [self setCurrentConnectionProgressStateError:YES];
+                    [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
+                }
+                else
+                {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        [self checkDeviceIsClaimed]; // recursion retry
+                        return;
+                    });
+                    
+                }
             }
             else
             {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    [self checkDeviceIsClaimed]; // recursion retry
-                    return;
-                });
+                
+                NSLog(@"step 4 - made it all the way through the steps, finished!");
+                [self getDeviceAndFinishSetup];
+                
                 
             }
-        }
-        else
-        {
-            
-            NSLog(@"step 4 - made it all the way through the steps, finished!");
-            [self getDeviceAndFinishSetup];
-
-
-        }
+        }];
     }];
     
 }
-
-
 
 
 
