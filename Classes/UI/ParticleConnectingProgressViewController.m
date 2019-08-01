@@ -504,7 +504,8 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
         [self getDeviceAndFinishSetup];
     }
     
-    NSLog(@"step 4 - checkDeviceIsClaimed, calling getDevices");
+    NSLog(@"step 4 - checkDeviceIsClaimed, calling getDevices with...");
+    NSLog(@"ParticleCloud sharedInstance].accessToken): %@",[ParticleCloud sharedInstance].accessToken);
     [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
         
         NSLog(@"step 4 - checkDeviceIsClaimed, gotDevices");
