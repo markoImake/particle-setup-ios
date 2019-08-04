@@ -98,7 +98,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     self.connectionProgressTextList = [[NSMutableArray alloc] init];
     
     // set logo
-//    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     // force load from resource bundle
@@ -140,8 +140,6 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 - (void)reachabilityChanged:(NSNotification *)note
 {
-    
-    NSLog(@"reachabilityChanged");
     Reachability* curReach = [note object];
     NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
@@ -150,20 +148,20 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     {
         case NotReachable:
         {
-            NSLog(@"reachabilityChanged -- NO");
+//            NSLog(@"reachabilityChanged -- NO");
             self.hostReachable = NO;
             break;
         }
             
         case ReachableViaWWAN:
         {
-            NSLog(@"reachabilityChanged -- YES 3G");
+//            NSLog(@"reachabilityChanged -- YES 3G");
             self.hostReachable = YES; // we want to make sure device changed wifis
             break;
         }
         case ReachableViaWiFi:
         {
-            NSLog(@"reachabilityChanged -- YES WiFi");
+//            NSLog(@"reachabilityChanged -- YES WiFi");
             self.hostReachable = YES;
             break;
         }
@@ -182,7 +180,6 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)setCurrentConnectionProgressStateError:(BOOL)isError
 {
-    NSLog(@"setCurrentConnectionProgressStateError");
     dispatch_async(dispatch_get_main_queue(), ^{
         [self stopAnimatingSpinner:self.currentStateView.spinner];
         NSString *stateImageName = (isError) ? @"x" : @"checkmark";
@@ -208,7 +205,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)nextConnectionProgressState
 {
-    NSLog(@"nextConnectionProgressState called, current state: %ld",(long)self.currentState);
+//    NSLog(@"nextConnectionProgressState called, current state: %ld",(long)self.currentState);
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -217,12 +214,8 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
         self.currentStateView.spinner.image = [UIImage imageNamed:@"checkmark" inBundle:[ParticleSetupMainController getResourcesBundle] compatibleWithTraitCollection:nil]; // TODO: make iOS7 compatible
         [self tintConnectionProgressStateSpinner];
         self.currentState++;
-        
-        NSLog(@"nextConnectionProgressState called, current state ++: %ld",(long)self.currentState);
         if (self.currentState < __ParticleSetupConnectionProgressStateLast)
         {
-            
-            NSLog(@"nextConnectionProgressState < finalState");
             self.currentStateView = self.progressViews[self.currentState];
             self.currentStateView.hidden = NO;
             self.currentStateView.label.font = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].normalTextFontName size:16.0];
@@ -269,12 +262,11 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 -(void)configureDeviceNetworkCredentials // step 0
 {
     
-    NSLog(@"step 0 - configureDeviceNetworkCredentials");
     // --- Configure-AP ---
     __block ParticleSetupCommManager *managerForConfigure = [[ParticleSetupCommManager alloc] init];
     
     [managerForConfigure configureAP:self.networkName passcode:self.password security:self.security channel:self.channel completion:^(id responseCode, NSError *error) {
-        NSLog(@"configureAP sent");
+//        NSLog(@"configureAP sent");
         if ((error) || ([responseCode intValue]!=0))
         {
             if (self.currentState == ParticleSetupConnectionProgressStateConfigureCredentials)
@@ -315,8 +307,6 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 -(void)connectDeviceToNetwork // step 1
 {
     // --- Connect-AP ---
-    
-    NSLog(@"step 1 - connectDeviceToNetwork");
     ParticleSetupCommManager *managerForConnect = [[ParticleSetupCommManager alloc] init];
 //    self.connectAPsent = YES;
 //    if (!self.disconnectedFromDevice)
@@ -360,11 +350,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)waitForCloudConnection // step 2
 {
-    
-    NSLog(@"step 2 - waitForCloudConnection (wait)");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kWaitForCloudConnectionTime * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSLog(@"step 2 - waitForCloudConnection timeout");
         [self nextConnectionProgressState];
         [self checkForInternetConnectivity];
 
@@ -376,12 +362,9 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 -(void)checkForInternetConnectivity // step 3
 {
     
-    NSLog(@"step 3 - checkForInternetConnectivity");
     // --- reachability check ---
     if (!self.hostReachable)
     {
-        
-        NSLog(@"step 3 - if -> !self.hostReachable");
         for (int i=0; i<kMaxRetriesReachability-1; i++)
         {
             if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
@@ -409,31 +392,23 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     
     if ((self.hostReachable) || (self.apiReachable))
     {
-        
-        NSLog(@"step 3 - if -> (self.hostReachable) || (self.apiReachable)");
         self.claimRetries = 0;
         // check that SSID disappears here and didn't come back
         if (self.needToClaimDevice)
         {
-            
-            NSLog(@"step 3 - self.needToClaimDevice");
             [self nextConnectionProgressState];
-            
-            NSLog(@"step 3 - self.needToClaimDevice");
             [self checkDeviceIsClaimed];
-            NSLog(@"Subscribing to status events for %@",self.deviceID);
+//            NSLog(@"Subscribing to status events for %@",self.deviceID);
             self.statusEventID = [[ParticleCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"spark" handler:^(ParticleEvent * _Nullable event, NSError * _Nullable error) {
-                NSLog(@"got status event");
+//                NSLog(@"got status event");
                 if ([event.deviceID isEqualToString:self.deviceID]) {
                     self.gotStatusEventFromDevice = YES;
-                    NSLog(@"from our device - device is online and broadcasting events");
+//                    NSLog(@"from our device");
                 }
             }];
         }
         else
         {
-            
-            NSLog(@"step 3 - !self.needToClaimDevice -> fail -> ParticleSetupMainControllerResultSuccessNotClaimed");
             // finished
             [self setCurrentConnectionProgressStateError:NO];
             [self finishSetupWithResult:ParticleSetupMainControllerResultSuccessNotClaimed];
@@ -442,8 +417,6 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     }
     else
     {
-        
-        NSLog(@"step 3 - else fail -> ParticleSetupMainControllerResultFailureCannotDisconnectFromDevice");
         [self setCurrentConnectionProgressStateError:YES];
         [self finishSetupWithResult:ParticleSetupMainControllerResultFailureCannotDisconnectFromDevice];
     }
@@ -453,26 +426,18 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)getDeviceAndFinishSetup
 {
-    
-    NSLog(@"step 5 - getDeviceAndFinishSetup, getdevice...");
     // get the claimed device to report it back to the user
     [[ParticleCloud sharedInstance] getDevice:self.deviceID completion:^(ParticleDevice *device, NSError *error) {
         // --- Done ---
-        
-        NSLog(@"step 5 - getDeviceAndFinishSetup, gotDevice -");
-        NSLog(@"Device id:%@", device.id);
-        NSLog(@"Device id:%d", device.connected);
         if (!error)
         {
-            
-            NSLog(@"step 5 - getDeviceAndFinishSetup, gotDevice - !error");
             self.device = device;
             [self nextConnectionProgressState];
             
-//            if (device.connected)
+            if (device.connected)
                 self.setupResult = ParticleSetupMainControllerResultSuccess;
-//            else
-//                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
+            else
+                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
             
             if (self.gotStatusEventFromDevice) { // that means device is or was online and now probably OTAing which is fine
                 self.setupResult = ParticleSetupMainControllerResultSuccess;
@@ -495,69 +460,57 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)checkDeviceIsClaimed // step 4
 {
-    
-    NSLog(@"step 4 - checkDeviceIsClaimed, calling claimDevice...");
     // --- Claim device ---
-    [[ParticleCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
-        NSLog(@"claimDevice completion error: %@", error);
-        if (self.gotStatusEventFromDevice) {
-            NSLog(@"received event from setup device, finishing setup successfully");
-            [self getDeviceAndFinishSetup];
-        }
-        
-        NSLog(@"step 4 - checkDeviceIsClaimed, calling getDevices with...");
-        NSLog(@"ParticleCloud sharedInstance].accessToken): %@",[ParticleCloud sharedInstance].accessToken);
-        [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
-            
-            NSLog(@"step 4 - checkDeviceIsClaimed, gotDevices");
-            BOOL deviceClaimed = NO;
-            if (devices)
+//    [[ParticleCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
+    if (self.gotStatusEventFromDevice) {
+//        NSLog(@"received event from setup device, finishing setup successfully");
+        [self getDeviceAndFinishSetup];
+    }
+    
+    [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
+        BOOL deviceClaimed = NO;
+        if (devices)
+        {
+            for (ParticleDevice *device in devices)
             {
-                for (ParticleDevice *device in devices)
+//                NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
+                if ([device.id isEqualToString:self.deviceID])
                 {
-                    NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
-                    if ([device.id isEqualToString:self.deviceID])
-                    {
-                        
-                        NSLog(@"step 4 - checkDeviceIsClaimed, [device.id isEqualToString:self.deviceID] - found the new device, it belongs to us!");
-                        // device now appear's in users claimed devices so it's claimed
-                        deviceClaimed = YES;
-                    }
+                    // device now appear's in users claimed devices so it's claimed
+                    deviceClaimed = YES;
                 }
             }
-            
-            if ((error) || (!deviceClaimed))
+        }
+        
+        if ((error) || (!deviceClaimed))
+        {
+            self.claimRetries++;
+//            NSLog(@"Claim try %ld",(long)self.claimRetries);
+            if (self.claimRetries >= kMaxRetriesClaim-1)
             {
-                
-                NSLog(@"step 4 - if ((error) || (!deviceClaimed)) -> recursion retry");
-                self.claimRetries++;
-                //            NSLog(@"Claim try %ld",(long)self.claimRetries);
-                if (self.claimRetries >= kMaxRetriesClaim-1)
-                {
-                    [self setCurrentConnectionProgressStateError:YES];
-                    [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
-                }
-                else
-                {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                        [self checkDeviceIsClaimed]; // recursion retry
-                        return;
-                    });
-                    
-                }
+                [self setCurrentConnectionProgressStateError:YES];
+                [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
             }
             else
             {
-                
-                NSLog(@"step 4 - made it all the way through the steps, finished!");
-                [self getDeviceAndFinishSetup];
-                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    [self checkDeviceIsClaimed]; // recursion retry
+                    return;
+                });
                 
             }
-        }];
+        }
+        else
+        {
+            [self getDeviceAndFinishSetup];
+
+
+        }
     }];
     
 }
+
+
 
 
 
