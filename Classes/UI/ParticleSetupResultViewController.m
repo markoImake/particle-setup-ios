@@ -45,7 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // set logo
-    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+//    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     self.nameDeviceLabel.hidden = YES;

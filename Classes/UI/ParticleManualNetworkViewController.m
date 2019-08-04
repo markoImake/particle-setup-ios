@@ -39,7 +39,7 @@
     [super viewDidLoad];
 
     // move to super viewdidload?
-    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
+//    self.brandImageView.image = [ParticleSetupCustomization sharedInstance].brandImage;
     self.brandImageView.backgroundColor = [ParticleSetupCustomization sharedInstance].brandImageBackgroundColor;
     
     UIColor *navBarButtonsColor = ([ParticleSetupCustomization sharedInstance].lightStatusAndNavBar) ? [UIColor whiteColor] : [UIColor blackColor];
