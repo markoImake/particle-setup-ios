@@ -434,10 +434,10 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
             self.device = device;
             [self nextConnectionProgressState];
             
-            if (device.connected)
+//            if (device.connected)
                 self.setupResult = ParticleSetupMainControllerResultSuccess;
-            else
-                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
+//            else
+//                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
             
             if (self.gotStatusEventFromDevice) { // that means device is or was online and now probably OTAing which is fine
                 self.setupResult = ParticleSetupMainControllerResultSuccess;
