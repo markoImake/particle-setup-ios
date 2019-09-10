@@ -49,12 +49,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // move to super viewdidload?
+    //Force light mode on iOS 13
+    if (@available(iOS 13.0, *)) {
+        if ([self respondsToSelector:NSSelectorFromString(@"overrideUserInterfaceStyle")]) {
+            [self setValue:@(UIUserInterfaceStyleLight) forKey:@"overrideUserInterfaceStyle"];
+        }
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+}
+
 
 /*
 #pragma mark - Navigation
