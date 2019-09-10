@@ -9,8 +9,7 @@
 #import "ParticleGetReadyViewController.h"
 #import "ParticleSetupWebViewController.h"
 #import <CoreLocation/CoreLocation.h>
-
-#ifdef USE_FRAMEWORKS
+#ifdef FRAMEWORK
 #import <ParticleSDK/ParticleSDK.h>
 #else
 #import "Particle-SDK.h"

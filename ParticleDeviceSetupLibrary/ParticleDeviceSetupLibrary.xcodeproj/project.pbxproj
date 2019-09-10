@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DB2F02723274FB2002826F0 /* ParticleGetLocationPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2F02523274FB2002826F0 /* ParticleGetLocationPermissionViewController.m */; };
+		2DB2F02823274FB2002826F0 /* ParticleGetLocationPermissionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB2F02623274FB2002826F0 /* ParticleGetLocationPermissionViewController.h */; };
 		5038C5321CA21D190084D255 /* ParticleDeviceSetupLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5311CA21D190084D255 /* ParticleDeviceSetupLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5038C5741CA21E750084D255 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5401CA21E750084D255 /* Reachability.h */; };
 		5038C5751CA21E750084D255 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5411CA21E750084D255 /* Reachability.m */; };
@@ -63,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DB2F02523274FB2002826F0 /* ParticleGetLocationPermissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleGetLocationPermissionViewController.m; sourceTree = "<group>"; };
+		2DB2F02623274FB2002826F0 /* ParticleGetLocationPermissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleGetLocationPermissionViewController.h; sourceTree = "<group>"; };
 		5038C52E1CA21D190084D255 /* ParticleDeviceSetupLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParticleDeviceSetupLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5038C5311CA21D190084D255 /* ParticleDeviceSetupLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleDeviceSetupLibrary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5038C5331CA21D190084D255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				5038C54C1CA21E750084D255 /* ParticleConnectingProgressViewController.m */,
 				5038C54D1CA21E750084D255 /* ParticleDiscoverDeviceViewController.h */,
 				5038C54E1CA21E750084D255 /* ParticleDiscoverDeviceViewController.m */,
+				2DB2F02623274FB2002826F0 /* ParticleGetLocationPermissionViewController.h */,
+				2DB2F02523274FB2002826F0 /* ParticleGetLocationPermissionViewController.m */,
 				5038C54F1CA21E750084D255 /* ParticleGetReadyViewController.h */,
 				5038C5501CA21E750084D255 /* ParticleGetReadyViewController.m */,
 				5038C5511CA21E750084D255 /* ParticleManualNetworkViewController.h */,
@@ -277,6 +283,7 @@
 				5038C5881CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h in Headers */,
 				5038C58E1CA21E750084D255 /* ParticleSetupWebViewController.h in Headers */,
 				5038C5981CA21E750084D255 /* ParticleSetupUIElements.h in Headers */,
+				2DB2F02823274FB2002826F0 /* ParticleGetLocationPermissionViewController.h in Headers */,
 				5038C5821CA21E750084D255 /* ParticleGetReadyViewController.h in Headers */,
 				5038C5901CA21E750084D255 /* ParticleUserForgotPasswordViewController.h in Headers */,
 				5038C5991CA21E750084D255 /* ParticleSetupUILabel.h in Headers */,
@@ -338,6 +345,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 5038C5241CA21D190084D255;
@@ -372,6 +380,7 @@
 				5038C58D1CA21E750084D255 /* ParticleSetupVideoViewController.m in Sources */,
 				5038C5931CA21E750084D255 /* ParticleUserLoginViewController.m in Sources */,
 				5038C59C1CA21E750084D255 /* ParticleSetupUISpinner.m in Sources */,
+				2DB2F02723274FB2002826F0 /* ParticleGetLocationPermissionViewController.m in Sources */,
 				5038C5A21CA21E750084D255 /* ParticleSetupCustomization.m in Sources */,
 				5038C5911CA21E750084D255 /* ParticleUserForgotPasswordViewController.m in Sources */,
 				5038C5971CA21E750084D255 /* ParticleSetupUIButton.m in Sources */,
