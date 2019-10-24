@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K4G-ia-1Un" userLabel="Brand Image View">
-                                <rect key="frame" x="-4" y="20" width="383" height="64"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="hic-St-XRD">
@@ -46,7 +44,7 @@
                                 </variation>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="verify password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fIF-uh-IUN">
-                                <rect key="frame" x="63.5" y="204" width="248" height="36"/>
+                                <rect key="frame" x="63.5" y="184" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="UeW-lb-Cms"/>
@@ -70,7 +68,7 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-K5-EOR">
-                                <rect key="frame" x="63.5" y="130" width="248" height="36"/>
+                                <rect key="frame" x="63.5" y="110" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="of3-Q7-PCU"/>
@@ -78,7 +76,6 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                     </constraint>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <variation key="default">
@@ -95,7 +92,7 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vrl-zm-0Hh">
-                                <rect key="frame" x="63.5" y="167" width="248" height="36"/>
+                                <rect key="frame" x="63.5" y="147" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="0Ac-6t-fhr">
@@ -119,7 +116,7 @@
                                 </variation>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="vg2-z0-M92" customClass="ParticleSetupUILabel">
-                                <rect key="frame" x="110" y="85" width="155" height="29"/>
+                                <rect key="frame" x="110" y="65" width="155" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -270,7 +267,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-6f-5yx" customClass="ParticleSetupUIButton">
-                                <rect key="frame" x="70.5" y="417" width="234" height="32"/>
+                                <rect key="frame" x="70.5" y="397" width="234" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="I already have a {brand} account">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -283,7 +280,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-ZG-e7U" customClass="ParticleSetupUIButton">
-                                <rect key="frame" x="63.5" y="361" width="248" height="40"/>
+                                <rect key="frame" x="63.5" y="341" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="MtQ-wA-HJ1">
@@ -316,7 +313,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xbQ-5h-nSM" customClass="ParticleSetupUISpinner">
-                                <rect key="frame" x="67.5" y="371" width="20" height="20"/>
+                                <rect key="frame" x="67.5" y="351" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="9FB-2T-EpT">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -345,7 +342,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVT-3c-Czs" customClass="ParticleSetupUIButton">
-                                <rect key="frame" x="117.5" y="457" width="140" height="32"/>
+                                <rect key="frame" x="117.5" y="437" width="140" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Skip authentication">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -358,7 +355,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdd-7J-coK" userLabel="1PasswordButton">
-                                <rect key="frame" x="279.5" y="173" width="24" height="24"/>
+                                <rect key="frame" x="279.5" y="153" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="6b6-mO-Vpe"/>
                                     <constraint firstAttribute="height" constant="24" id="xr6-ai-cSc"/>
@@ -383,7 +380,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jU7-Z7-BA2">
-                                <rect key="frame" x="63.5" y="241" width="123" height="36"/>
+                                <rect key="frame" x="63.5" y="221" width="123" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="6ZK-E1-r5m">
@@ -407,7 +404,7 @@
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sC9-N5-3CX">
-                                <rect key="frame" x="187.5" y="241" width="124" height="36"/>
+                                <rect key="frame" x="187.5" y="221" width="124" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="aPc-p1-mpq">
@@ -429,13 +426,13 @@
                                 </variation>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T8O-Vp-yxQ">
-                                <rect key="frame" x="63.5" y="322" width="51" height="31"/>
+                                <rect key="frame" x="63.5" y="302" width="51" height="31"/>
                                 <connections>
                                     <action selector="businessAccountSwitchChanged:" destination="lRJ-Zc-d9X" eventType="valueChanged" id="Wzf-pO-d02"/>
                                 </connections>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="company name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W7u-dG-cZw">
-                                <rect key="frame" x="63.5" y="278" width="248" height="36"/>
+                                <rect key="frame" x="63.5" y="258" width="248" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="aeH-eB-i3I">
@@ -459,7 +456,7 @@
                                 </variation>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a business account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4j-Sw-Za4" customClass="ParticleSetupUILabel">
-                                <rect key="frame" x="124.5" y="328.5" width="180" height="18"/>
+                                <rect key="frame" x="124.5" y="308.5" width="180" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="CEg-ax-hYK">
                                         <variation key="heightClass=regular-widthClass=compact" constant="36"/>
@@ -651,7 +648,6 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                             </constraint>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="default">
@@ -988,7 +984,7 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UOq-6u-boa" userLabel="Brand Image View">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="64"/>
+                                <rect key="frame" x="-4" y="-20" width="383" height="64"/>
                                 <color key="backgroundColor" red="0.8304140567779541" green="0.83038914203643799" blue="0.83040332794189453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="kew-7K-kWI">
@@ -1083,7 +1079,6 @@
                                             <constraint firstAttribute="width" constant="248" id="0Ve-A9-x5m"/>
                                             <constraint firstAttribute="height" constant="36" id="JaQ-DL-cmr"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Reader" family="Reader" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="default">
@@ -1361,11 +1356,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-ev-VCh">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvA-k3-JhB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="yJO-2g-4Ip">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="dmf-0n-QUx">
@@ -1474,7 +1469,7 @@
         <!--Particle Discover Device View Controller-->
         <scene sceneID="bQl-2p-6GE">
             <objects>
-                <viewController storyboardIdentifier="discover" id="DQd-hP-ryy" customClass="ParticleDiscoverDeviceViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="discover" modalPresentationStyle="fullScreen" id="DQd-hP-ryy" customClass="ParticleDiscoverDeviceViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" verticalCompressionResistancePriority="59" id="av0-fS-2U8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1499,7 +1494,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvF-1y-aF9">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.18823529410000001" green="0.1960784314" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2199,7 +2194,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-2T-JYm">
-                                <rect key="frame" x="8" y="28" width="47" height="30"/>
+                                <rect key="frame" x="8" y="8" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Ird-Un-OuQ"/>
@@ -2342,7 +2337,7 @@
         <!--Particle Select Network View Controller-->
         <scene sceneID="5mr-9s-c2P">
             <objects>
-                <viewController id="HmA-2l-zkq" customClass="ParticleSelectNetworkViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="HmA-2l-zkq" customClass="ParticleSelectNetworkViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jPx-aH-LOr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2367,7 +2362,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozt-0X-VCd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.18823529411764706" green="0.19607843137254902" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2486,7 +2481,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zt9-Gu-dqE" id="eac-hz-gRp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-i7-QNc">
@@ -2710,7 +2705,7 @@
         <!--Particle Connecting Progress View Controller-->
         <scene sceneID="pU4-vR-fWy">
             <objects>
-                <viewController id="lWW-BP-U6f" customClass="ParticleConnectingProgressViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="lWW-BP-U6f" customClass="ParticleConnectingProgressViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dyM-qm-UaJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2775,7 +2770,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg7-eH-yF2">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.18823529411764706" green="0.19607843137254902" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3325,7 +3320,7 @@
         <!--Particle Setup Result View Controller-->
         <scene sceneID="Uha-um-OAW">
             <objects>
-                <viewController id="fH1-BW-ERq" customClass="ParticleSetupResultViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="fH1-BW-ERq" customClass="ParticleSetupResultViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4qS-vF-byz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3353,7 +3348,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaW-ks-a9D">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.18823529411764706" green="0.19607843137254902" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3653,7 +3648,7 @@
         <!--Navigation Controller-->
         <scene sceneID="LmG-nE-a0r">
             <objects>
-                <navigationController storyboardIdentifier="setup" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lxh-KG-rnL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="setup" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="lxh-KG-rnL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZD8-2Y-dJt">
                         <autoresizingMask key="autoresizingMask"/>
@@ -3670,7 +3665,7 @@
         <!--Particle Get Ready View Controller-->
         <scene sceneID="uDk-Ph-8Sm">
             <objects>
-                <viewController storyboardIdentifier="get_ready" title="Particle Get Ready View Controller" id="Z3p-Ig-NCk" customClass="ParticleGetReadyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="get_ready" title="Particle Get Ready View Controller" modalPresentationStyle="fullScreen" id="Z3p-Ig-NCk" customClass="ParticleGetReadyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" verticalCompressionResistancePriority="59" id="xP3-D7-C6C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3696,7 +3691,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-JO-jmv">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.18823529410000001" green="0.1960784314" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -3707,7 +3702,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to set up your {device}!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S2-nZC">
-                                <rect key="frame" x="50" y="85" width="275" height="24"/>
+                                <rect key="frame" x="50" y="65" width="275" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -4115,7 +4110,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZE-3U-nVp">
-                                <rect key="frame" x="315" y="28" width="52" height="30"/>
+                                <rect key="frame" x="316" y="8" width="51" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="Bb6-Yp-HQO"/>
@@ -4178,7 +4173,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXe-vV-Moq">
-                                <rect key="frame" x="8" y="28" width="47" height="30"/>
+                                <rect key="frame" x="8" y="8" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="1f4-ad-B8e"/>
@@ -4381,7 +4376,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFL-of-LFw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.18823529411764706" green="0.19607843137254902" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4572,7 +4567,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYN-rW-HM4">
-                                <rect key="frame" x="8" y="28" width="24" height="24"/>
+                                <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="kGU-Dz-l1c">
@@ -4714,7 +4709,7 @@
         <!--Particle Manual Network View Controller-->
         <scene sceneID="BiO-zA-MmH">
             <objects>
-                <viewController id="dRz-80-B65" customClass="ParticleManualNetworkViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="dRz-80-B65" customClass="ParticleManualNetworkViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ivc-Ce-LLj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4739,7 +4734,7 @@
                                 </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qv-gA-xdz">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.18823529411764706" green="0.19607843137254902" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4945,7 +4940,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-oD-PoU">
-                                <rect key="frame" x="8" y="28" width="24" height="24"/>
+                                <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="c1s-y2-xby"/>
@@ -5050,11 +5045,11 @@
             <objects>
                 <viewController id="TSc-Cc-JEA" customClass="ParticleSetupVideoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="huD-bB-luu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-pv-oR8">
-                                <rect key="frame" x="343" y="28" width="24" height="24"/>
+                                <rect key="frame" x="343" y="8" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="g31-PF-UK3"/>
@@ -5121,17 +5116,17 @@
         <!--Particle Get Location Permission View Controller-->
         <scene sceneID="znc-qJ-q1Q">
             <objects>
-                <viewController storyboardIdentifier="corelocation" id="SnV-vA-9A7" customClass="ParticleGetLocationPermissionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="corelocation" modalPresentationStyle="fullScreen" id="SnV-vA-9A7" customClass="ParticleGetLocationPermissionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" verticalCompressionResistancePriority="59" id="INl-Nw-kh1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W91-wJ-wgt" userLabel="BrandImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.83041405680000002" green="0.83038914200000002" blue="0.83040332790000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2DK-RS-AUb" userLabel="Brand Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="-20" width="375" height="64"/>
                                 <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="LDv-jd-UNo"/>
@@ -5156,7 +5151,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou1-sU-g1Y">
-                                <rect key="frame" x="16" y="27" width="47" height="30"/>
+                                <rect key="frame" x="16" y="7" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <state key="normal" title="Cancel">
@@ -5239,8 +5234,8 @@
         <image name="x" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dk3-1h-vwt"/>
-        <segue reference="MPJ-t5-PGI"/>
-        <segue reference="gy6-c9-WWy"/>
+        <segue reference="LMP-8O-ZPP"/>
+        <segue reference="c4T-fL-kLE"/>
+        <segue reference="D6q-8T-DuT"/>
     </inferredMetricsTieBreakers>
 </document>
