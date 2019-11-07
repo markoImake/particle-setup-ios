@@ -95,11 +95,11 @@
         self.resetPasswordButton.userInteractionEnabled = NO;
         if ([ParticleSetupCustomization sharedInstance].productMode) // TODO: fix that so it'll work for non-org too
         {
-            [[ParticleCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[ParticleSetupCustomization sharedInstance].productId completion:passwordResetCallback];
+//            [[ParticleCloud sharedInstance] requestPasswordResetForCustomer:self.emailTextField.text productId:[ParticleSetupCustomization sharedInstance].productId completion:passwordResetCallback];
         }
         else
         {
-            [[ParticleCloud sharedInstance] requestPasswordResetForUser:self.emailTextField.text completion:passwordResetCallback];
+//            [[ParticleCloud sharedInstance] requestPasswordResetForUser:self.emailTextField.text completion:passwordResetCallback];
         }
     }
     else
