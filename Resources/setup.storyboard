@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -551,6 +551,7 @@
                                 <exclude reference="x6x-Uy-g4M"/>
                                 <exclude reference="lqX-CO-RDc"/>
                                 <exclude reference="Nh7-f0-3Uu"/>
+                                <exclude reference="Q3C-Kh-D4F"/>
                                 <exclude reference="416-L9-WaF"/>
                                 <exclude reference="7KO-hz-srK"/>
                                 <exclude reference="GMW-US-fXN"/>
@@ -562,10 +563,9 @@
                                 <exclude reference="lRT-Ud-ot4"/>
                                 <exclude reference="MQf-ss-dEc"/>
                                 <exclude reference="UZE-cL-tRn"/>
+                                <exclude reference="TFl-Im-piK"/>
                                 <exclude reference="p6x-z1-eXT"/>
                                 <exclude reference="RbJ-ih-tjl"/>
-                                <exclude reference="Q3C-Kh-D4F"/>
-                                <exclude reference="TFl-Im-piK"/>
                                 <exclude reference="QIM-hJ-Tma"/>
                             </mask>
                         </variation>
@@ -583,6 +583,7 @@
                                 <include reference="x6x-Uy-g4M"/>
                                 <include reference="lqX-CO-RDc"/>
                                 <include reference="Nh7-f0-3Uu"/>
+                                <include reference="Q3C-Kh-D4F"/>
                                 <include reference="416-L9-WaF"/>
                                 <include reference="7KO-hz-srK"/>
                                 <include reference="GMW-US-fXN"/>
@@ -594,10 +595,9 @@
                                 <include reference="lRT-Ud-ot4"/>
                                 <include reference="MQf-ss-dEc"/>
                                 <include reference="UZE-cL-tRn"/>
+                                <include reference="TFl-Im-piK"/>
                                 <include reference="p6x-z1-eXT"/>
                                 <include reference="RbJ-ih-tjl"/>
-                                <include reference="Q3C-Kh-D4F"/>
-                                <include reference="TFl-Im-piK"/>
                                 <include reference="QIM-hJ-Tma"/>
                             </mask>
                         </variation>
@@ -5162,7 +5162,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mon-gC-E62">
-                                <rect key="frame" x="20" y="189.5" width="335" height="268.5"/>
+                                <rect key="frame" x="20" y="179.5" width="335" height="288.5"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permission to read WIFI SSID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yl-vd-yMq" customClass="ParticleSetupUILabel">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="29"/>
@@ -5174,8 +5174,8 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMA-1F-pcw" customClass="ParticleSetupUILabel">
-                                        <rect key="frame" x="0.0" y="45" width="335" height="223.5"/>
-                                        <string key="text">Photon setup reads current WIFI SSID to determine when you phone connects to a device.   Starting iOS 13, for apps to have access to WIFI SSID information, user must grant Core Location permission.   Particle app will only use this permission to read WIFI SSID and not to track your location.</string>
+                                        <rect key="frame" x="0.0" y="45" width="335" height="243.5"/>
+                                        <mutableString key="text">During the setup process the app monitors the current WIFI SSID (WIFI Network Name) to determine when you phone connects to a device.   Starting iOS 13, for apps to have access to WIFI SSID information, users must explicitly grant permission.   We will only use this permission to read WIFI SSID during device setup and not to track your location.</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
