@@ -105,9 +105,9 @@
     NSLog(@"updateContent called!!!");
     if ([CLLocationManager locationServicesEnabled] &&
             ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)) {
-        [self.bodyLabel setText:@"Photon setup reads current Wi-Fi SSID to determine when your phone connects to a device.\n\n"
-                                "Starting iOS 13, for apps to have access to Wi-Fi SSID information, user must grant location services permission.\n\n"
-                                "Particle app will only use this permission to read Wi-Fi SSID and not to track your location."];
+        [self.bodyLabel setText:@"During the setup process the app monitors the current Wi-Fi SSID (Wi-Fi Network Name) to determine when you phone connects to a device.\n\n"
+                                "Starting iOS 13, for apps to have access to Wi-Fi SSID information, users must grant location services permission.\n\n"
+                                "We will only use this permission to read Wi-Fi SSID during device setup and not to track your location."];
         [self.continueButton setTitle:@"GRANT PERMISSION" forState:UIControlStateNormal];
     } else if ([CLLocationManager locationServicesEnabled] &&
             (([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) || ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse))) {
@@ -116,10 +116,10 @@
             _animating = true;
         }
     } else {
-        [self.bodyLabel setText:@"Photon setup reads current Wi-Fi SSID to determine when your phone connects to a device.\n\n"
-                                "Starting iOS 13, for apps to have access to Wi-Fi SSID information, user must grant location services permission.\n\n"
-                                "You have previously denied Particle application permission to access location services. Please grant the permission in Settings app.\n\n"
-                                "Particle app will only use this permission to read Wi-Fi SSID and not to track your location."];
+        [self.bodyLabel setText:@"During the setup process the app monitors the current Wi-Fi SSID (Wi-Fi Network Name) to determine when you phone connects to a device.\n\n"
+                                "Starting iOS 13, for apps to have access to Wi-Fi SSID information, users must grant location services permission.\n\n"
+                                "You have previously denied the permission to access location services. Please grant the permission in Settings app.\n\n"
+                                "We will only use this permission to read Wi-Fi SSID during device setup and not to track your location."];
         [self.continueButton setTitle:@"OPEN SETTINGS" forState:UIControlStateNormal];
     }
 }
