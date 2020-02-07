@@ -107,7 +107,12 @@
                 self.nameDeviceTextField.hidden = NO;
                 //            NSString *randomDeviceName1 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
                 //            NSString *randomDeviceName2 = self.randomDeviceNamesArray[arc4random_uniform((UInt32)self.randomDeviceNamesArray.count)];
-                self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+                if ([self.device.name length] == 0){
+                    self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+                } else {
+                   self.nameDeviceTextField.text = self.device.name;
+                }
+
             }
             
 #ifdef ANALYTICS
@@ -215,6 +220,9 @@
     if (textField == self.nameDeviceTextField)
     {
          if (![ParticleSetupCustomization sharedInstance].skipRename) {
+             if ([self.nameDeviceTextField.text length] == 0) {
+                 self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+             }
             [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
                 if (error) {
                     NSLog(@"Error naming device %@",error.description);
@@ -248,6 +256,9 @@
     {
      
         if (!self.deviceNamed && ![ParticleSetupCustomization sharedInstance].skipRename) {
+            if ([self.nameDeviceTextField.text length] == 0) {
+                self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+            }
             [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
                 if (error) {
                     NSLog(@"error name device %@",error.description);
