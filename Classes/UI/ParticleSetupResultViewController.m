@@ -221,7 +221,11 @@
     {
          if (![ParticleSetupCustomization sharedInstance].skipRename) {
              if ([self.nameDeviceTextField.text length] == 0) {
-                 self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+                 if ([self.device.name length] == 0){
+                     self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+                 } else {
+                    self.nameDeviceTextField.text = self.device.name;
+                 }
              }
             [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
                 if (error) {
@@ -257,7 +261,11 @@
      
         if (!self.deviceNamed && ![ParticleSetupCustomization sharedInstance].skipRename) {
             if ([self.nameDeviceTextField.text length] == 0) {
-                self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+                if ([self.device.name length] == 0){
+                    self.nameDeviceTextField.text = [ParticleSetupCustomization sharedInstance].deviceDefaultName;
+                } else {
+                   self.nameDeviceTextField.text = self.device.name;
+                }
             }
             [self.device rename:self.nameDeviceTextField.text completion:^(NSError *error) {
                 if (error) {
