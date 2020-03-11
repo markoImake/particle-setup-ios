@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1536,7 +1536,7 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="connect-to-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-Qf-QZC">
-                                <rect key="frame" x="-112.5" y="99" width="600" height="70"/>
+                                <rect key="frame" x="37.5" y="99" width="300" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="187" id="1yO-kO-rOR">
                                         <variation key="heightClass=regular-widthClass=compact" constant="70"/>
@@ -2471,7 +2471,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BdB-vi-zpj">
-                                <rect key="frame" x="0.0" y="134.5" width="375" height="430.5"/>
+                                <rect key="frame" x="0.0" y="151.5" width="375" height="413.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2597,6 +2597,12 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: This device only supports 2.4 GHz networks. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8i-Yp-1jR">
+                                <rect key="frame" x="42.5" y="133.5" width="290.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2607,6 +2613,8 @@
                             <constraint firstItem="TR1-ME-BYk" firstAttribute="top" secondItem="KB8-Fp-xL8" secondAttribute="bottom" constant="14" id="5fH-Ou-iEO">
                                 <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                             </constraint>
+                            <constraint firstItem="X8i-Yp-1jR" firstAttribute="top" secondItem="cXr-RN-psz" secondAttribute="bottom" constant="7" id="DSc-jx-qpd"/>
+                            <constraint firstItem="X8i-Yp-1jR" firstAttribute="centerX" secondItem="Po7-fR-4to" secondAttribute="centerX" id="IFy-2f-Ckb"/>
                             <constraint firstItem="Po7-fR-4to" firstAttribute="bottom" secondItem="TR1-ME-BYk" secondAttribute="bottom" constant="20" id="IJG-aN-sVe"/>
                             <constraint firstItem="cXr-RN-psz" firstAttribute="leading" secondItem="jPx-aH-LOr" secondAttribute="leadingMargin" id="Iu0-PA-eWU"/>
                             <constraint firstItem="cXr-RN-psz" firstAttribute="top" secondItem="NBp-nB-TmB" secondAttribute="bottom" constant="35" id="MyV-wn-fDt"/>
@@ -2628,7 +2636,7 @@
                             <constraint firstItem="NBp-nB-TmB" firstAttribute="leading" secondItem="jPx-aH-LOr" secondAttribute="leading" id="iph-PW-Lry"/>
                             <constraint firstItem="NBp-nB-TmB" firstAttribute="top" secondItem="jPx-aH-LOr" secondAttribute="top" id="iuI-6V-GMp"/>
                             <constraint firstItem="BdB-vi-zpj" firstAttribute="top" secondItem="cXr-RN-psz" secondAttribute="bottom" constant="-1" id="jHe-bk-fEE">
-                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="25"/>
                             </constraint>
                             <constraint firstItem="Po7-fR-4to" firstAttribute="top" secondItem="Ozt-0X-VCd" secondAttribute="top" id="qyh-Ie-k9U"/>
                             <constraint firstItem="Po7-fR-4to" firstAttribute="centerX" secondItem="KB8-Fp-xL8" secondAttribute="centerX" id="sPH-B9-8xe"/>
@@ -2647,6 +2655,10 @@
                                 <exclude reference="Iu0-PA-eWU"/>
                                 <exclude reference="MyV-wn-fDt"/>
                                 <exclude reference="dLK-03-BwO"/>
+                                <exclude reference="1t8-NG-lHa"/>
+                                <exclude reference="IJG-aN-sVe"/>
+                                <exclude reference="f4N-YH-uQI"/>
+                                <exclude reference="sPH-B9-8xe"/>
                                 <exclude reference="NJn-eD-IkW"/>
                                 <exclude reference="XnO-C8-P0Y"/>
                                 <exclude reference="jHe-bk-fEE"/>
@@ -2654,10 +2666,6 @@
                                 <exclude reference="Qy3-YD-n4i"/>
                                 <exclude reference="1FU-oQ-S1o"/>
                                 <exclude reference="5fH-Ou-iEO"/>
-                                <exclude reference="1t8-NG-lHa"/>
-                                <exclude reference="IJG-aN-sVe"/>
-                                <exclude reference="f4N-YH-uQI"/>
-                                <exclude reference="sPH-B9-8xe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -2673,6 +2681,10 @@
                                 <include reference="Iu0-PA-eWU"/>
                                 <include reference="MyV-wn-fDt"/>
                                 <include reference="dLK-03-BwO"/>
+                                <include reference="1t8-NG-lHa"/>
+                                <include reference="IJG-aN-sVe"/>
+                                <include reference="f4N-YH-uQI"/>
+                                <include reference="sPH-B9-8xe"/>
                                 <include reference="NJn-eD-IkW"/>
                                 <include reference="XnO-C8-P0Y"/>
                                 <include reference="jHe-bk-fEE"/>
@@ -2680,10 +2692,6 @@
                                 <include reference="Qy3-YD-n4i"/>
                                 <include reference="1FU-oQ-S1o"/>
                                 <include reference="5fH-Ou-iEO"/>
-                                <include reference="1t8-NG-lHa"/>
-                                <include reference="IJG-aN-sVe"/>
-                                <include reference="f4N-YH-uQI"/>
-                                <include reference="sPH-B9-8xe"/>
                             </mask>
                         </variation>
                     </view>
@@ -5234,8 +5242,8 @@
         <image name="x" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LMP-8O-ZPP"/>
-        <segue reference="c4T-fL-kLE"/>
+        <segue reference="dk3-1h-vwt"/>
+        <segue reference="MPJ-t5-PGI"/>
         <segue reference="D6q-8T-DuT"/>
     </inferredMetricsTieBreakers>
 </document>
