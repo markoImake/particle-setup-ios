@@ -15,7 +15,6 @@
 #import "OnePasswordExtension.h"
 #endif
 #import "ParticleUserLoginViewController.h"
-#import "ParticleSetupWebViewController.h"
 #import "ParticleSetupCustomization.h"
 #import "ParticleSetupUIElements.h"
 #import "ParticleSetupMainController.h"
@@ -334,27 +333,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid email address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
-}
-
-
-- (IBAction)privacyPolicyButton:(id)sender
-{
-    [self.view endEditing:YES];
-    
-    ParticleSetupWebViewController* webVC = [[ParticleSetupMainController getSetupStoryboard]instantiateViewControllerWithIdentifier:@"webview"];
-    webVC.link = [ParticleSetupCustomization sharedInstance].privacyPolicyLinkURL;
-//    webVC.htmlFilename = @"test";
-    [self presentViewController:webVC animated:YES completion:nil];
-}
-
-
-
-- (IBAction)termOfServiceButton:(id)sender
-{
-    [self.view endEditing:YES];
-    ParticleSetupWebViewController* webVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"webview"];
-    webVC.link = [ParticleSetupCustomization sharedInstance].termsOfServiceLinkURL;
-    [self presentViewController:webVC animated:YES completion:nil];
 }
 
 

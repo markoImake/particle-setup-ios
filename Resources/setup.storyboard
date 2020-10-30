@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -170,7 +170,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-ei-guU" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-ei-guU" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="163" y="52" width="84" height="28"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" link="YES"/>
@@ -186,7 +186,7 @@
                                             <action selector="privacyPolicyButton:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="yVJ-S4-1ZM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzU-UX-EDD" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzU-UX-EDD" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="31.5" y="52" width="101.5" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Terms of Service">
@@ -266,7 +266,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-6f-5yx" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-6f-5yx" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="70.5" y="397" width="234" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="I already have a {brand} account">
@@ -279,7 +279,7 @@
                                     <action selector="haveAnAccountButtonTouched:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="tjc-Eu-fRW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-ZG-e7U" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hTx-ZG-e7U" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="341" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -341,7 +341,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVT-3c-Czs" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVT-3c-Czs" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="117.5" y="437" width="140" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Skip authentication">
@@ -354,7 +354,7 @@
                                     <action selector="skipAuthButtonTapped:" destination="lRJ-Zc-d9X" eventType="touchUpInside" id="DQF-7G-lox"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdd-7J-coK" userLabel="1PasswordButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdd-7J-coK" userLabel="1PasswordButton">
                                 <rect key="frame" x="279.5" y="153" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="6b6-mO-Vpe"/>
@@ -477,6 +477,7 @@
                                 </variation>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Prt-w3-CaY"/>
                         <color key="backgroundColor" red="0.95564919710159302" green="0.95562058687210083" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Prt-w3-CaY" firstAttribute="trailing" secondItem="kRO-Z7-PiJ" secondAttribute="trailing" constant="20" id="3hq-7i-xQY"/>
@@ -536,7 +537,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Prt-w3-CaY"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="K4G-ia-1Un"/>
@@ -666,7 +666,7 @@
                                             <outlet property="delegate" destination="aoV-ks-Ppc" id="YKp-aj-i4A"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COP-ta-WJN" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COP-ta-WJN" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="36" y="134" width="248" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -699,7 +699,7 @@
                                             <action selector="loginButton:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="0j4-BE-fl3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTe-aG-SyA" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTe-aG-SyA" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="88" y="228" width="144" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="X52-DV-fbz"/>
@@ -755,7 +755,7 @@
                                             <outlet property="delegate" destination="aoV-ks-Ppc" id="7n3-Y0-qaH"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-yE-xbn" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-yE-xbn" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="57" y="186" width="206" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="Y9p-Y2-5yk"/>
@@ -819,7 +819,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojn-N2-37N" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojn-N2-37N" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="94" y="270" width="132" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="hAL-Zc-NBU"/>
@@ -848,7 +848,7 @@
                                             <action selector="skipAuthButtonTapped:" destination="aoV-ks-Ppc" eventType="touchUpInside" id="Wi0-Pk-rSN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Le-AyR" userLabel="1PasswordButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4k-Le-AyR" userLabel="1PasswordButton">
                                         <rect key="frame" x="252" y="88" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="cqk-k5-RZQ"/>
@@ -1003,6 +1003,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="fQ4-oY-X89"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UOq-6u-boa" firstAttribute="trailing" secondItem="aiM-NV-bxW" secondAttribute="trailingMargin" id="09K-sR-bBP">
@@ -1015,7 +1016,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fQ4-oY-X89"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="jCp-ZS-zgw"/>
@@ -1097,7 +1097,7 @@
                                             <outlet property="delegate" destination="aoV-ks-Ppc" id="ALP-gb-s1W"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3y-XJ-EXr" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3y-XJ-EXr" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="47.5" y="159" width="248" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1131,13 +1131,13 @@
                                             <action selector="resetPasswordButtonTapped:" destination="Yiu-ge-Gp9" eventType="touchUpInside" id="7g8-f0-e2W"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEF-rf-PHn" customClass="ParticleSetupUIButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEF-rf-PHn" customClass="ParticleSetupUIButton">
                                         <rect key="frame" x="85" y="215" width="173" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="I remember my password">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="darkTextColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="type" value="link"/>
@@ -1293,6 +1293,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ujI-uQ-cPi"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I8l-1c-uV9" firstAttribute="leading" secondItem="ujI-uQ-cPi" secondAttribute="leading" id="5qI-dz-XT5"/>
@@ -1306,7 +1307,6 @@
                             </constraint>
                             <constraint firstItem="I8l-1c-uV9" firstAttribute="top" secondItem="XuY-6L-DdQ" secondAttribute="top" id="eXo-GL-boS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ujI-uQ-cPi"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="DBd-QT-spH"/>
@@ -1347,125 +1347,6 @@
             </objects>
             <point key="canvasLocation" x="1249.5" y="846.75"/>
         </scene>
-        <!--Particle Setup Web View Controller-->
-        <scene sceneID="PMd-xx-OKt">
-            <objects>
-                <viewController storyboardIdentifier="webview" modalPresentationStyle="overCurrentContext" id="958-ft-t5V" customClass="ParticleSetupWebViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4yi-OT-GLm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS3-ev-VCh">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvA-k3-JhB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem id="yJO-2g-4Ip">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="dmf-0n-QUx">
-                                            <connections>
-                                                <action selector="closeButtonTouched:" destination="958-ft-t5V" id="8Zw-vv-iLy"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="asE-42-lNZ" customClass="ParticleSetupUISpinner">
-                                <rect key="frame" x="171.5" y="317.5" width="32" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="4MW-Lc-qJX">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="32"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="64" id="lRp-Z3-sst">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="32"/>
-                                    </constraint>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="foreground"/>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="4MW-Lc-qJX"/>
-                                        <exclude reference="lRp-Z3-sst"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="4MW-Lc-qJX"/>
-                                        <include reference="lRp-Z3-sst"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="FS3-ev-VCh" firstAttribute="leading" secondItem="4yi-OT-GLm" secondAttribute="leadingMargin" id="1gX-zp-Iz9">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
-                            </constraint>
-                            <constraint firstItem="HvA-k3-JhB" firstAttribute="top" secondItem="ZZx-f4-5oS" secondAttribute="top" id="2WC-aT-DLD"/>
-                            <constraint firstItem="FS3-ev-VCh" firstAttribute="trailing" secondItem="4yi-OT-GLm" secondAttribute="trailingMargin" id="4cO-jo-OsO">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                            </constraint>
-                            <constraint firstAttribute="trailingMargin" secondItem="HvA-k3-JhB" secondAttribute="trailing" id="Jmg-Dv-hbR">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
-                            </constraint>
-                            <constraint firstItem="ZZx-f4-5oS" firstAttribute="bottom" secondItem="FS3-ev-VCh" secondAttribute="bottom" id="Kdw-cg-Pmp"/>
-                            <constraint firstItem="FS3-ev-VCh" firstAttribute="top" secondItem="4yi-OT-GLm" secondAttribute="topMargin" id="SAn-6T-yPH">
-                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
-                            </constraint>
-                            <constraint firstItem="ZZx-f4-5oS" firstAttribute="centerX" secondItem="asE-42-lNZ" secondAttribute="centerX" id="Ufc-Ym-ChM"/>
-                            <constraint firstItem="HvA-k3-JhB" firstAttribute="leading" secondItem="4yi-OT-GLm" secondAttribute="leadingMargin" id="hEb-DM-O9U">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" secondItem="asE-42-lNZ" secondAttribute="centerY" id="weV-Cm-XLp"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZZx-f4-5oS"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="FS3-ev-VCh"/>
-                                <exclude reference="HvA-k3-JhB"/>
-                                <exclude reference="asE-42-lNZ"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="2WC-aT-DLD"/>
-                                <exclude reference="Jmg-Dv-hbR"/>
-                                <exclude reference="hEb-DM-O9U"/>
-                                <exclude reference="weV-Cm-XLp"/>
-                                <exclude reference="1gX-zp-Iz9"/>
-                                <exclude reference="4cO-jo-OsO"/>
-                                <exclude reference="SAn-6T-yPH"/>
-                                <exclude reference="Kdw-cg-Pmp"/>
-                                <exclude reference="Ufc-Ym-ChM"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="FS3-ev-VCh"/>
-                                <include reference="HvA-k3-JhB"/>
-                                <include reference="asE-42-lNZ"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="2WC-aT-DLD"/>
-                                <include reference="Jmg-Dv-hbR"/>
-                                <include reference="hEb-DM-O9U"/>
-                                <include reference="weV-Cm-XLp"/>
-                                <include reference="1gX-zp-Iz9"/>
-                                <include reference="4cO-jo-OsO"/>
-                                <include reference="SAn-6T-yPH"/>
-                                <include reference="Kdw-cg-Pmp"/>
-                                <include reference="Ufc-Ym-ChM"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="spinner" destination="asE-42-lNZ" id="kvZ-gS-8Ly"/>
-                        <outlet property="webView" destination="FS3-ev-VCh" id="ig6-19-uJk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Sx-Ve-tZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2031" y="846.75"/>
-        </scene>
         <!--Particle Discover Device View Controller-->
         <scene sceneID="bQl-2p-6GE">
             <objects>
@@ -1503,7 +1384,7 @@
                                     <navigationItem title="Device Setup" id="i5c-57-yKx"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-uh-IqQ" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-uh-IqQ" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -2193,7 +2074,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-2T-JYm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-2T-JYm">
                                 <rect key="frame" x="8" y="8" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -2233,6 +2114,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JAq-A3-xxt"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bH6-hD-cea" firstAttribute="leading" secondItem="av0-fS-2U8" secondAttribute="leadingMargin" constant="-16" id="20t-w5-en3">
@@ -2266,7 +2148,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JAq-A3-xxt"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="yjq-4r-6tw"/>
@@ -2371,7 +2252,7 @@
                                     <navigationItem title="Device Setup" id="OOe-WG-dJV"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-ME-BYk" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR1-ME-BYk" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -2438,7 +2319,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="header"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB8-Fp-xL8" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KB8-Fp-xL8" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="106" y="573" width="163" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="1c9-Jd-KHz"/>
@@ -2485,7 +2366,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi3" translatesAutoresizingMaskIntoConstraints="NO" id="OgY-i7-QNc">
-                                                    <rect key="frame" x="335" y="12" width="26" height="26"/>
+                                                    <rect key="frame" x="334" y="12" width="26" height="26"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="CjU-Uj-l5K"/>
@@ -2505,7 +2386,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-jb-Dgx">
-                                                    <rect key="frame" x="307" y="12" width="26" height="26"/>
+                                                    <rect key="frame" x="306" y="12" width="26" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="PWe-LU-QKp"/>
                                                         <constraint firstAttribute="width" constant="26" id="TZM-FV-5Hk"/>
@@ -2524,7 +2405,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZH-8h-xTS">
-                                                    <rect key="frame" x="31" y="14" width="273" height="22"/>
+                                                    <rect key="frame" x="32" y="14" width="271" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="6uQ-KH-gVe"/>
                                                     </constraints>
@@ -2604,6 +2485,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Po7-fR-4to"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TR1-ME-BYk" firstAttribute="leading" secondItem="TPt-BY-VBm" secondAttribute="trailing" constant="-32" id="1FU-oQ-S1o">
@@ -2641,7 +2523,6 @@
                             <constraint firstItem="Po7-fR-4to" firstAttribute="top" secondItem="Ozt-0X-VCd" secondAttribute="top" id="qyh-Ie-k9U"/>
                             <constraint firstItem="Po7-fR-4to" firstAttribute="centerX" secondItem="KB8-Fp-xL8" secondAttribute="centerX" id="sPH-B9-8xe"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Po7-fR-4to"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="NBp-nB-TmB"/>
@@ -2810,7 +2691,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to Wi-Fi network" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hed-Wt-5JS">
-                                        <rect key="frame" x="40" y="10" width="196" height="21"/>
+                                        <rect key="frame" x="40" y="10" width="195" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2887,7 +2768,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait for device cloud connection" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbT-im-ebx">
-                                        <rect key="frame" x="40" y="10" width="250.5" height="21"/>
+                                        <rect key="frame" x="40" y="10" width="249" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2964,7 +2845,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check for internet connectivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvI-AW-ch0">
-                                        <rect key="frame" x="40" y="10" width="236" height="21"/>
+                                        <rect key="frame" x="40" y="10" width="234.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3041,7 +2922,7 @@
                                         </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify device ownership" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-fl-5gg">
-                                        <rect key="frame" x="40" y="10" width="182" height="21"/>
+                                        <rect key="frame" x="40" y="10" width="181" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3173,6 +3054,7 @@
                                 </connections>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="cbz-qj-dtX"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R3W-op-31b" firstAttribute="top" secondItem="pE1-ji-8tD" secondAttribute="bottom" constant="8" id="1vK-ay-A8m"/>
@@ -3221,7 +3103,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-2"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cbz-qj-dtX"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="eud-gX-Qzz"/>
@@ -3397,7 +3278,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="normal"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtn-Ip-3FT" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtn-Ip-3FT" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -3438,7 +3319,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="header"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZM-QG-orr" customClass="ParticleSetupUIButton">
+                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZM-QG-orr" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="131.5" y="569" width="112" height="30"/>
                                 <state key="normal" title="Troubleshooting">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3484,6 +3365,7 @@
                                 </variation>
                             </textField>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iGL-B6-hbr"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nUz-dW-L6z" firstAttribute="top" secondItem="ywE-ZV-rVm" secondAttribute="bottom" constant="16" id="7w6-rj-pgc"/>
@@ -3521,7 +3403,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="35"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iGL-B6-hbr"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="dxu-kn-9q9"/>
@@ -3618,13 +3499,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </containerView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="k9L-8J-0h9"/>
                         <constraints>
                             <constraint firstItem="k9L-8J-0h9" firstAttribute="trailing" secondItem="NMV-mM-4MM" secondAttribute="trailing" id="WPp-Jv-t7e"/>
                             <constraint firstItem="k9L-8J-0h9" firstAttribute="bottom" secondItem="NMV-mM-4MM" secondAttribute="bottom" id="gKR-kn-Pi5"/>
                             <constraint firstItem="NMV-mM-4MM" firstAttribute="leading" secondItem="k9L-8J-0h9" secondAttribute="leading" id="rY8-ga-ow4"/>
                             <constraint firstItem="NMV-mM-4MM" firstAttribute="top" secondItem="rvB-vP-ruz" secondAttribute="top" id="wLk-1d-0oV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="k9L-8J-0h9"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="rY8-ga-ow4"/>
@@ -4058,7 +3939,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNy-JD-Bob" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNy-JD-Bob" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470588232" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4117,8 +3998,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZE-3U-nVp">
-                                <rect key="frame" x="316" y="8" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZE-3U-nVp">
+                                <rect key="frame" x="315" y="8" width="52" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="248" id="Bb6-Yp-HQO"/>
@@ -4180,7 +4061,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXe-vV-Moq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXe-vV-Moq">
                                 <rect key="frame" x="8" y="8" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4221,6 +4102,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="shz-9D-Jdd"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0dN-4C-Qip" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leadingMargin" id="08j-Bi-dpM"/>
@@ -4269,7 +4151,6 @@
                             <constraint firstItem="shz-9D-Jdd" firstAttribute="trailing" secondItem="ecM-S2-nZC" secondAttribute="trailing" constant="50" id="yay-YG-qpV"/>
                             <constraint firstItem="NXe-vV-Moq" firstAttribute="top" secondItem="shz-9D-Jdd" secondAttribute="top" constant="8" id="yrB-AV-Pv8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="shz-9D-Jdd"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ldG-Y4-BA3"/>
@@ -4574,7 +4455,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYN-rW-HM4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYN-rW-HM4">
                                 <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4604,7 +4485,7 @@
                                     <action selector="changeNetworkButtonTapped:" destination="URz-wL-Fyt" eventType="touchUpInside" id="Nhm-kT-llT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBN-QE-HKZ" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBN-QE-HKZ" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4637,6 +4518,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="kbC-sI-MnH"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6tN-9j-HsE" firstAttribute="leading" secondItem="pa8-S2-Yq3" secondAttribute="leading" id="3fO-M8-MFL"/>
@@ -4660,7 +4542,6 @@
                             </constraint>
                             <constraint firstItem="fYN-rW-HM4" firstAttribute="top" secondItem="kbC-sI-MnH" secondAttribute="top" constant="8" id="veH-yl-cRy"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kbC-sI-MnH"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="6tN-9j-HsE"/>
@@ -4915,7 +4796,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-Fe-1Rf" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-Fe-1Rf" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4947,7 +4828,7 @@
                                     <action selector="connectButtonTapped:" destination="dRz-80-B65" eventType="touchUpInside" id="AQc-lc-lGS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-oD-PoU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-oD-PoU">
                                 <rect key="frame" x="8" y="8" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4974,6 +4855,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HX4-rc-SIr"/>
                         <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MD3-cf-C0M" firstAttribute="top" secondItem="ivc-Ce-LLj" secondAttribute="top" id="2eE-h0-Qu8"/>
@@ -4992,7 +4874,6 @@
                             <constraint firstItem="pY6-oD-PoU" firstAttribute="leading" secondItem="ivc-Ce-LLj" secondAttribute="leadingMargin" constant="-8" id="tpJ-VB-RSM"/>
                             <constraint firstItem="HX4-rc-SIr" firstAttribute="trailing" secondItem="MD3-cf-C0M" secondAttribute="trailing" id="zgk-pY-Ygm"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HX4-rc-SIr"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="MD3-cf-C0M"/>
@@ -5056,7 +4937,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-pv-oR8">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBc-pv-oR8">
                                 <rect key="frame" x="343" y="8" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -5083,6 +4964,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="L6h-Ox-YU7"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kBc-pv-oR8" firstAttribute="top" secondItem="L6h-Ox-YU7" secondAttribute="top" constant="16" id="88i-Ns-xvJ">
@@ -5092,7 +4974,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="L6h-Ox-YU7"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="kBc-pv-oR8"/>
@@ -5140,7 +5021,7 @@
                                     <constraint firstAttribute="height" constant="64" id="LDv-jd-UNo"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQg-N1-5JA" customClass="ParticleSetupUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQg-N1-5JA" customClass="ParticleSetupUIButton">
                                 <rect key="frame" x="63.5" y="607" width="248" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -5158,7 +5039,7 @@
                                     <action selector="continueButtonTouched:" destination="SnV-vA-9A7" eventType="touchUpInside" id="9eI-bQ-d3a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou1-sU-g1Y">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou1-sU-g1Y">
                                 <rect key="frame" x="16" y="7" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -5190,6 +5071,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="W0a-0H-Jpr"/>
                         <color key="backgroundColor" red="0.95564913750000002" green="0.95562052730000002" blue="0.95563679930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="W91-wJ-wgt" firstAttribute="top" secondItem="INl-Nw-kh1" secondAttribute="top" id="0Jx-xp-HGR"/>
@@ -5207,7 +5089,6 @@
                             <constraint firstItem="ou1-sU-g1Y" firstAttribute="centerY" secondItem="W91-wJ-wgt" secondAttribute="bottom" constant="-22" id="vEJ-aM-SZo"/>
                             <constraint firstAttribute="trailing" secondItem="W91-wJ-wgt" secondAttribute="trailing" id="zfo-hM-O9e"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="W0a-0H-Jpr"/>
                     </view>
                     <navigationItem key="navigationItem" id="pOE-OH-ksT"/>
                     <connections>
@@ -5224,6 +5105,11 @@
             <point key="canvasLocation" x="1191" y="-536"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dk3-1h-vwt"/>
+        <segue reference="MPJ-t5-PGI"/>
+        <segue reference="D6q-8T-DuT"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="200" height="200"/>
         <image name="2" width="200" height="200"/>
@@ -5240,10 +5126,8 @@
         <image name="success" width="256" height="256"/>
         <image name="wifi3" width="64" height="64"/>
         <image name="x" width="30" height="30"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="dk3-1h-vwt"/>
-        <segue reference="MPJ-t5-PGI"/>
-        <segue reference="D6q-8T-DuT"/>
-    </inferredMetricsTieBreakers>
 </document>

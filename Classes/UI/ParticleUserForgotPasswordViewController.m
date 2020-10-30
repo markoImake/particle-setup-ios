@@ -13,7 +13,6 @@
 #else
 #import "Particle-SDK.h"
 #endif
-#import "ParticleSetupWebViewController.h"
 #import "ParticleUserLoginViewController.h"
 #import "ParticleSetupUIElements.h"
 #ifdef ANALYTICS

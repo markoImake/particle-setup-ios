@@ -7,7 +7,6 @@
 //
 
 #import "ParticleGetReadyViewController.h"
-#import "ParticleSetupWebViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #ifdef FRAMEWORK
@@ -148,14 +147,6 @@
         }];
     }
     
-
-}
-
-- (IBAction)troubleShootingButtonTapped:(id)sender
-{
-    ParticleSetupWebViewController* webVC = [[UIStoryboard storyboardWithName:@"setup" bundle:[NSBundle bundleWithIdentifier:SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER]] instantiateViewControllerWithIdentifier:@"webview"];
-    webVC.link = [ParticleSetupCustomization sharedInstance].troubleshootingLinkURL;
-    [self presentViewController:webVC animated:YES completion:nil];
 
 }
 

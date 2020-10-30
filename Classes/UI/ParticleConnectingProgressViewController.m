@@ -10,7 +10,6 @@
 #import "ParticleSetupCommManager.h"
 #import "ParticleSetupMainController.h"
 #import "ParticleSetupCustomization.h"
-#import "ParticleSetupWebViewController.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "Reachability.h"
 #ifdef FRAMEWORK
