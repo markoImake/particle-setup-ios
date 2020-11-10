@@ -27,7 +27,6 @@
 		509081EB1ACF6AF70014E7DF /* ParticleManualNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081C61ACF6AF70014E7DF /* ParticleManualNetworkViewController.m */; };
 		509081EC1ACF6AF70014E7DF /* ParticleSelectNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081C81ACF6AF70014E7DF /* ParticleSelectNetworkViewController.m */; };
 		509081ED1ACF6AF70014E7DF /* ParticleSetupPasswordEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081CA1ACF6AF70014E7DF /* ParticleSetupPasswordEntryViewController.m */; };
-		509081F01ACF6AF70014E7DF /* ParticleSetupWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D01ACF6AF70014E7DF /* ParticleSetupWebViewController.m */; };
 		509081F11ACF6AF70014E7DF /* ParticleUserForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D21ACF6AF70014E7DF /* ParticleUserForgotPasswordViewController.m */; };
 		509081F21ACF6AF70014E7DF /* ParticleUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D41ACF6AF70014E7DF /* ParticleUserLoginViewController.m */; };
 		509081F31ACF6AF70014E7DF /* ParticleUserSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509081D61ACF6AF70014E7DF /* ParticleUserSignupViewController.m */; };
@@ -96,8 +95,6 @@
 		509081C81ACF6AF70014E7DF /* ParticleSelectNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSelectNetworkViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		509081C91ACF6AF70014E7DF /* ParticleSetupPasswordEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupPasswordEntryViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		509081CA1ACF6AF70014E7DF /* ParticleSetupPasswordEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupPasswordEntryViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		509081CF1ACF6AF70014E7DF /* ParticleSetupWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupWebViewController.h; sourceTree = "<group>"; };
-		509081D01ACF6AF70014E7DF /* ParticleSetupWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupWebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		509081D11ACF6AF70014E7DF /* ParticleUserForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleUserForgotPasswordViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		509081D21ACF6AF70014E7DF /* ParticleUserForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserForgotPasswordViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		509081D31ACF6AF70014E7DF /* ParticleUserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleUserLoginViewController.h; sourceTree = "<group>"; };
@@ -233,8 +230,6 @@
 				509081C81ACF6AF70014E7DF /* ParticleSelectNetworkViewController.m */,
 				509081C91ACF6AF70014E7DF /* ParticleSetupPasswordEntryViewController.h */,
 				509081CA1ACF6AF70014E7DF /* ParticleSetupPasswordEntryViewController.m */,
-				509081CF1ACF6AF70014E7DF /* ParticleSetupWebViewController.h */,
-				509081D01ACF6AF70014E7DF /* ParticleSetupWebViewController.m */,
 				509081D11ACF6AF70014E7DF /* ParticleUserForgotPasswordViewController.h */,
 				509081D21ACF6AF70014E7DF /* ParticleUserForgotPasswordViewController.m */,
 				509081D31ACF6AF70014E7DF /* ParticleUserLoginViewController.h */,
@@ -402,6 +397,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 509080B51ACF46600014E7DF;
@@ -493,7 +489,6 @@
 				506C6FE61AD32E1C009D8498 /* ParticleSetupUIViewController.m in Sources */,
 				509081E81ACF6AF70014E7DF /* ParticleConnectingProgressViewController.m in Sources */,
 				509081E51ACF6AF70014E7DF /* ParticleSetupCommManager.m in Sources */,
-				509081F01ACF6AF70014E7DF /* ParticleSetupWebViewController.m in Sources */,
 				509081F51ACF6AF70014E7DF /* ParticleSetupUILabel.m in Sources */,
 				509081E61ACF6AF70014E7DF /* ParticleSetupConnection.m in Sources */,
 				509081E71ACF6AF70014E7DF /* ParticleSetupSecurityManager.m in Sources */,
