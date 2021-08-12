@@ -79,9 +79,9 @@
 //        self.elementTextColor = [UIColor whiteColor]; // white button color
         self.elementTextColor = [UIColor colorWithRed:20 green:20 blue:20];
         
-        self.normalTextFontName = @"HelveticaNeue";
-        self.boldTextFontName = @"HelveticaNeue-Bold";
-        self.headerTextFontName = @"HelveticaNeue-Light";
+        self.normalTextFontName = @"GFKEverett-Regular";
+        self.boldTextFontName = @"TWKEverett-Bold";
+        self.headerTextFontName = @"GFKEverett-Regular";
         
         self.tintSetupImages = NO;
         self.lightStatusAndNavBar = YES;
