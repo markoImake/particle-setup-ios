@@ -74,8 +74,10 @@
 //        self.errorTextColor = [UIColor redColor];
 //        self.errorTextColor = [UIColor colorWithRed:254 green:71 blue:71];
 //        self.elementBackgroundColor = [UIColor colorWithRed:0.84f green:0.32f blue:0.07f alpha:1.0f];
-        self.elementBackgroundColor = [UIColor colorWithRed:0 green:165 blue:231];
-        self.elementTextColor = [UIColor whiteColor];
+//        self.elementBackgroundColor = [UIColor colorWithRed:0 green:165 blue:231]; // gf yellow
+        self.elementBackgroundColor = [UIColor colorWithRed:79 green:222 blue:102];
+//        self.elementTextColor = [UIColor whiteColor]; // white button color
+        self.elementTextColor = [UIColor colorWithRed:20 green:20 blue:20];
         
         self.normalTextFontName = @"HelveticaNeue";
         self.boldTextFontName = @"HelveticaNeue-Bold";
