@@ -96,8 +96,8 @@
     
     if (([type isEqualToString:@"action"]) || ([type isEqualToString:@"primary"]))
     {
-        UIFont *boldFont = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
-        self.titleLabel.font = boldFont;
+//        UIFont *boldFont = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
+//        self.titleLabel.font = boldFont;
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [ParticleSetupCustomization sharedInstance].elementBackgroundColor;
         self.layer.cornerRadius = 3.0;
@@ -129,8 +129,8 @@
     if ([type isEqualToString:@"secondary"])
     {
         
-        UIFont *boldFont = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
-        self.titleLabel.font = boldFont;
+//        UIFont *boldFont = [UIFont fontWithName:[ParticleSetupCustomization sharedInstance].boldTextFontName size:self.titleLabel.font.pointSize+[ParticleSetupCustomization sharedInstance].fontSizeOffset];
+//        self.titleLabel.font = boldFont;
 //        self.titleLabel.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
         [self setTitleColor:[ParticleSetupCustomization sharedInstance].normalTextColor forState:UIControlStateNormal];
         

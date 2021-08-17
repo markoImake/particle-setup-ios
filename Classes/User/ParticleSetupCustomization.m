@@ -69,7 +69,7 @@
         self.normalTextColor = [UIColor colorWithRed:28 green:26 blue:25];
         self.pageBackgroundColor = [UIColor colorWithWhite:0.94 alpha:1.0f];
 //        self.pageBackgroundColor = [UIColor colorWithRed:250 green:250 blue:250];
-        self.linkTextColor = [UIColor blueColor];
+        self.linkTextColor = [UIColor colorWithRed:79 green:222 blue:102];
 //        self.linkTextColor = [UIColor colorWithRed:6 green:165 blue:226];
 //        self.errorTextColor = [UIColor redColor];
 //        self.errorTextColor = [UIColor colorWithRed:254 green:71 blue:71];
