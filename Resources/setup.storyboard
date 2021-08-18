@@ -1731,8 +1731,8 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="background"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Wi-Fi network" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXr-RN-psz">
-                                <rect key="frame" x="16" y="99" width="343" height="23.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT YOUR WI-FI NETWORK" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXr-RN-psz">
+                                <rect key="frame" x="16" y="99" width="343" height="22.5"/>
                                 <fontDescription key="fontDescription" name="TWKEverett-Bold" family="TWK Everett" pointSize="19"/>
                                 <color key="textColor" red="1" green="0.2666666667" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2349,8 +2349,8 @@
                                     <navigationItem title="Device Setup" id="YVO-1B-91h"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to set up your {device}!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S2-nZC">
-                                <rect key="frame" x="50" y="65" width="275" height="23.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME TO SET UP YOUR {device}!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecM-S2-nZC">
+                                <rect key="frame" x="50" y="65" width="275" height="44.5"/>
                                 <fontDescription key="fontDescription" name="TWKEverett-Bold" family="TWK Everett" pointSize="19"/>
                                 <color key="textColor" red="1" green="0.2666666667" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2681,8 +2681,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGH-RZ-uLL">
                                 <rect key="frame" x="16" y="228.5" width="343" height="170"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secured network password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-in-rrz">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="23.5"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SECURED NETWORK PASSWORD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4Z-in-rrz">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="22.5"/>
                                         <fontDescription key="fontDescription" name="TWKEverett-Bold" family="TWK Everett" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.2666666667" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3092,8 +3092,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mon-gC-E62">
                                 <rect key="frame" x="20" y="186.5" width="335" height="274"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permission to read Wi-Fi SSID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yl-vd-yMq">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="23.5"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERMISSION TO READ WI-FI SSID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yl-vd-yMq">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="22.5"/>
                                         <fontDescription key="fontDescription" name="TWKEverett-Bold" family="TWK Everett" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.2666666667" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3102,7 +3102,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMA-1F-pcw" customClass="ParticleSetupUILabel">
-                                        <rect key="frame" x="0.0" y="39.5" width="335" height="234.5"/>
+                                        <rect key="frame" x="0.0" y="38.5" width="335" height="224"/>
                                         <string key="text">During the setup process the app monitors the current WIFI SSID (WIFI Network Name) to determine when you phone connects to a device.   Starting iOS 13, for apps to have access to WIFI SSID information, users must explicitly grant permission.   We will only use this permission to read WIFI SSID during device setup and not to track your location.</string>
                                         <fontDescription key="fontDescription" name="GFKEverett-Regular" family="GFK Everett" pointSize="16"/>
                                         <nil key="highlightedColor"/>
