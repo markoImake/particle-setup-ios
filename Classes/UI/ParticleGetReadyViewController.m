@@ -147,7 +147,7 @@
             [self.view layoutIfNeeded];
         }];
     }
-    
+    [self readyButtonTapped:self];
 
 }
 
