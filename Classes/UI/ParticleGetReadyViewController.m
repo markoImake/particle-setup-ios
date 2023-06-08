@@ -101,19 +101,19 @@
     
     // new Bevie custom init
     if ([ParticleSetupCustomization sharedInstance].deviceName) {
-        self.timeToStartLabel.text = [NSString stringWithFormat:@"TIME TO SET UP YOUR %@!", [ParticleSetupCustomization sharedInstance].deviceName];
-        self.timeToStartLabel.text = [self.timeToStartLabel.text uppercaseString];
+        self.timeToStartLabel.text = @"Preparing your device for setup...";
     }
     if ([ParticleSetupCustomization sharedInstance].instructionStep1) {
-        self.instructionStep1.text = [ParticleSetupCustomization sharedInstance].instructionStep1;
+        self.instructionStep1.text = @"";
     }
     if ([ParticleSetupCustomization sharedInstance].instructionStep2) {
-        self.instructionStep2.text = [ParticleSetupCustomization sharedInstance].instructionStep2;
+        self.instructionStep2.text = @"";
     }
     if ([ParticleSetupCustomization sharedInstance].instructionStep3) {
-        self.instructionStep3.text = [ParticleSetupCustomization sharedInstance].instructionStep3;
+        self.instructionStep3.text = @"";
     }
     
+    [self readyButtonTapped:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,21 +133,20 @@
     [super viewDidAppear:animated];
 //    self.videoViewWidth.constant = ((self.videoView.frame.size.height * 9.0)/16.0);
  
-    UIUserNotificationType types = UIUserNotificationTypeAlert|UIUserNotificationTypeSound;
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+//    UIUserNotificationType types = UIUserNotificationTypeAlert|UIUserNotificationTypeSound;
+//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+//    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     
 
-    if (isiPhone4)
-    {
-        self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
-        [self.view setNeedsUpdateConstraints];
-        
-        [UIView animateWithDuration:0.25f animations:^{
-            [self.view layoutIfNeeded];
-        }];
-    }
-    [self readyButtonTapped:self];
+//    if (isiPhone4)
+//    {
+//        self.instructionsLabel.text = [NSString stringWithFormat:@"Scroll down for more instructions:\n%@",self.instructionsLabel.text];
+//        [self.view setNeedsUpdateConstraints];
+//
+//        [UIView animateWithDuration:0.25f animations:^{
+//            [self.view layoutIfNeeded];
+//        }];
+//    }
 
 }
 
