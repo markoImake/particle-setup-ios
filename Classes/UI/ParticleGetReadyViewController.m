@@ -99,20 +99,6 @@
         self.logoutButton.hidden = YES;
     }
     
-    // new Bevie custom init
-    if ([ParticleSetupCustomization sharedInstance].deviceName) {
-        self.timeToStartLabel.text = @"Preparing your device for setup...";
-    }
-    if ([ParticleSetupCustomization sharedInstance].instructionStep1) {
-        self.instructionStep1.text = @"";
-    }
-    if ([ParticleSetupCustomization sharedInstance].instructionStep2) {
-        self.instructionStep2.text = @"";
-    }
-    if ([ParticleSetupCustomization sharedInstance].instructionStep3) {
-        self.instructionStep3.text = @"";
-    }
-    
     [self readyButtonTapped:self];
 }
 
