@@ -176,7 +176,7 @@
         //  [[ParticleCloud sharedInstance] generateClaimCode:^(NSString *claimCode, NSArray *userClaimedDeviceIDs, NSError *error) {
         
         self.readyButton.userInteractionEnabled = YES;
-        [self.spinner stopAnimating];
+//        [self.spinner stopAnimating];
         
         if (!error)
         {
