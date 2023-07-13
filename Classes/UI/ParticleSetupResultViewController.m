@@ -101,6 +101,11 @@
             self.setupResultImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"success"];
             self.shortMessageLabel.text = @"SETUP COMPLETED SUCCESSFULLY";
             self.longMessageLabel.text = @"Congrats! You've successfully set up your {device}.";
+            // Store the particle device in app user defaults
+            NSString *value = self.device.id;
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:value forKey:@"particleSuccessId"];
+            [defaults synchronize];
             if (![ParticleSetupCustomization sharedInstance].skipRename) {
                 self.nameDeviceLabel.hidden = NO;
                 self.nameDeviceTextField.hidden = NO;
