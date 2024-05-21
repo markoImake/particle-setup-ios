@@ -7,7 +7,7 @@
 //
 
 #import "ParticleSetupMainController.h"
-#import "ParticleUserSignupViewController.h"
+//#import "ParticleUserSignupViewController.h"
 #import "ParticleSetupCommManager.h"
 #import "ParticleSetupConnection.h"
 #ifdef FRAMEWORK
@@ -17,7 +17,7 @@
 #endif
 
 #import "ParticleSetupCustomization.h"
-#import "ParticleUserLoginViewController.h"
+//#import "ParticleUserLoginViewController.h"
 #import "ParticleSetupUIElements.h"
 
 //#define SPARK_SETUP_RESOURCE_BUNDLE_IDENTIFIER  @"io.spark.ParticleSetup"
@@ -28,7 +28,7 @@ NSString *const kParticleSetupDidFinishDeviceKey = @"kParticleSetupDidFinishDevi
 NSString *const kParticleSetupDidLogoutNotification = @"kParticleSetupDidLogoutNotification";
 NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDeviceIDKey";
 
-@interface ParticleSetupMainController() <ParticleUserLoginDelegate>
+@interface ParticleSetupMainController()
 
 //@property (nonatomic, strong) UINavigationController *setupNavController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -109,8 +109,8 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidFinishObserver:) name:kParticleSetupDidFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupDidLogoutObserver:) name:kParticleSetupDidLogoutNotification object:nil];
     
-    if ([ParticleCloud sharedInstance].isAuthenticated)
-    {
+//    if ([ParticleCloud sharedInstance].isAuthenticated)
+//    {
         // start from discover screen if user is already logged in
         if (self.authenticationOnly == NO)
         {
@@ -123,14 +123,14 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
                 [[NSNotificationCenter defaultCenter] postNotificationName:kParticleSetupDidFinishNotification object:nil userInfo:@{kParticleSetupDidFinishStateKey:@(ParticleSetupMainControllerResultLoggedIn)}];
             });
         }
-    }
-    else
-    {
-        if (self.setupOnly)
-            [self runSetup];
-        else
-            [self showSignup];
-    }
+//    }
+//    else
+//    {
+//        if (self.setupOnly)
+//            [self runSetup];
+//        else
+//            [self showSignup];
+//    }
 
 
 }
@@ -143,34 +143,34 @@ NSString *const kParticleSetupDidFailDeviceIDKey = @"kParticleSetupDidFailDevice
 
 -(void)showSignup
 {
-    ParticleUserSignupViewController *signupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
-    signupVC.delegate = self;
-    [self showViewController:signupVC];
+//    ParticleUserSignupViewController *signupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
+//    signupVC.delegate = self;
+//    [self showViewController:signupVC];
 }
 
 
 -(void)showSignupWithPredefinedActivationCode:(NSString *)activationCode;
 {
     // __deprecated
-    ParticleUserSignupViewController *signupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
-//    signupVC.predefinedActivationCode = activationCode;
-    signupVC.delegate = self;
-    [self showViewController:signupVC];
+//    ParticleUserSignupViewController *signupVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"signup"];
+////    signupVC.predefinedActivationCode = activationCode;
+//    signupVC.delegate = self;
+//    [self showViewController:signupVC];
 }
 
 
 -(void)showLogin
 {
-    ParticleUserLoginViewController *loginVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"login"];
-    loginVC.delegate = self;
-    [self showViewController:loginVC];
+//    ParticleUserLoginViewController *loginVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"login"];
+//    loginVC.delegate = self;
+//    [self showViewController:loginVC];
 }
 
 -(void)showPasswordReset
 {
-    ParticleUserLoginViewController *pwdrstVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"password_reset"];
-    pwdrstVC.delegate = self;
-    [self showViewController:pwdrstVC];
+//    ParticleUserLoginViewController *pwdrstVC = [[ParticleSetupMainController getSetupStoryboard] instantiateViewControllerWithIdentifier:@"password_reset"];
+//    pwdrstVC.delegate = self;
+//    [self showViewController:pwdrstVC];
 }
 
 

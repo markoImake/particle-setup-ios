@@ -456,83 +456,85 @@
 
 -(void)checkDeviceOwnershipChange
 {
-    if (!self.gotOwnershipInfo)
-    {
-        [self.checkConnectionTimer invalidate];
         self.needToCheckDeviceClaimed = NO;
-        
-//        self.isDetectedDeviceClaimed = YES; // DEBUG
-        if (!self.isDetectedDeviceClaimed) // device was never claimed before - so we need to claim it anyways
-        {
-            self.needToCheckDeviceClaimed = YES;
-            [self setDeviceClaimCode];
-        }
-        else
-        {
-            self.deviceClaimedByUser = NO;
-            
-            for (NSString *claimedDeviceID in self.claimedDevices)
-            {
-                if ([claimedDeviceID isEqualToString:self.detectedDeviceID])
-                {
-                    self.deviceClaimedByUser = YES;
-                }
-            }
-            
-            // if the user already owns the device it does not need to be set with a claim code but claiming check should be performed as last stage of setup process
-            if (self.deviceClaimedByUser)
-                self.needToCheckDeviceClaimed = YES;
-            
-            self.gotOwnershipInfo = YES;
-            
-            if ((self.isDetectedDeviceClaimed == YES) && (self.deviceClaimedByUser == NO))
-            {
-                if (!self.didGoToWifiListScreen)
-                {
-
-                    if ([ParticleCloud sharedInstance].isAuthenticated)
-                    {
-                        // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-//                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@?",[ParticleSetupCustomization sharedInstance].deviceName];
-//                        self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
-//                        [self.checkConnectionTimer invalidate];
-//                        [self.changeOwnershipAlertView show]
-                        // Don't present 'claim device' alert, just assume user wants to claim device and proceed
-                        self.needToCheckDeviceClaimed = YES;
-                        [self setDeviceClaimCode];
-                    }
-                    else // user skipped authentication so no need to claim or set claim code
-                    {
-                        self.needToCheckDeviceClaimed = NO;
-                        [self goToWifiListScreen];
-
-                    }
-                }
-            }
-            else
-            {
-                // no need to set claim code because the device is owned by current user
-                [self goToWifiListScreen];
-            }
-            
-        }
-        
-        // all cases:
-//        (1) device not claimed c=0 — device should also not be in list from API => mobile app assumes user is claiming and sets device claimCode + check its claimed at last stage
-//        (2) device claimed c=1 and already in list from API => mobile app does not ask user about taking ownership because device already belongs to this user, does NOT set claimCode to device (no need) but does check ownership in last setup step
-//        (3) device claimed c=1 and NOT in the list from the API => mobile app asks whether user would like to take ownership. YES: set claimCode and check ownership in last step, NO: doesn't set claimCode, doesn't check ownership in last step
-    }
-    else
-    {
-        if (self.needToCheckDeviceClaimed)
-        {
-            if (!self.deviceClaimedByUser)
-                [self setDeviceClaimCode];
-        }
-        else
-            [self goToWifiListScreen];
-        
-    }
+        [self goToWifiListScreen];
+//    if (!self.gotOwnershipInfo)
+//    {
+//        [self.checkConnectionTimer invalidate];
+//        self.needToCheckDeviceClaimed = NO;
+//        
+////        self.isDetectedDeviceClaimed = YES; // DEBUG
+//        if (!self.isDetectedDeviceClaimed) // device was never claimed before - so we need to claim it anyways
+//        {
+//            self.needToCheckDeviceClaimed = YES;
+//            [self setDeviceClaimCode];
+//        }
+//        else
+//        {
+//            self.deviceClaimedByUser = NO;
+//            
+//            for (NSString *claimedDeviceID in self.claimedDevices)
+//            {
+//                if ([claimedDeviceID isEqualToString:self.detectedDeviceID])
+//                {
+//                    self.deviceClaimedByUser = YES;
+//                }
+//            }
+//            
+//            // if the user already owns the device it does not need to be set with a claim code but claiming check should be performed as last stage of setup process
+//            if (self.deviceClaimedByUser)
+//                self.needToCheckDeviceClaimed = YES;
+//            
+//            self.gotOwnershipInfo = YES;
+//            
+//            if ((self.isDetectedDeviceClaimed == YES) && (self.deviceClaimedByUser == NO))
+//            {
+//                if (!self.didGoToWifiListScreen)
+//                {
+//
+//                    if ([ParticleCloud sharedInstance].isAuthenticated)
+//                    {
+//                        // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
+////                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@?",[ParticleSetupCustomization sharedInstance].deviceName];
+////                        self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
+////                        [self.checkConnectionTimer invalidate];
+////                        [self.changeOwnershipAlertView show]
+//                        // Don't present 'claim device' alert, just assume user wants to claim device and proceed
+//                        self.needToCheckDeviceClaimed = YES;
+//                        [self setDeviceClaimCode];
+//                    }
+//                    else // user skipped authentication so no need to claim or set claim code
+//                    {
+//                        self.needToCheckDeviceClaimed = NO;
+//                        [self goToWifiListScreen];
+//
+//                    }
+//                }
+//            }
+//            else
+//            {
+//                // no need to set claim code because the device is owned by current user
+//                [self goToWifiListScreen];
+//            }
+//            
+//        }
+//        
+//        // all cases:
+////        (1) device not claimed c=0 — device should also not be in list from API => mobile app assumes user is claiming and sets device claimCode + check its claimed at last stage
+////        (2) device claimed c=1 and already in list from API => mobile app does not ask user about taking ownership because device already belongs to this user, does NOT set claimCode to device (no need) but does check ownership in last setup step
+////        (3) device claimed c=1 and NOT in the list from the API => mobile app asks whether user would like to take ownership. YES: set claimCode and check ownership in last step, NO: doesn't set claimCode, doesn't check ownership in last step
+//    }
+//    else
+//    {
+//        if (self.needToCheckDeviceClaimed)
+//        {
+//            if (!self.deviceClaimedByUser)
+//                [self setDeviceClaimCode];
+//        }
+//        else
+//            [self goToWifiListScreen];
+//        
+//    }
     
     
 }

@@ -34,14 +34,6 @@
 		5038C58B1CA21E750084D255 /* ParticleSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5581CA21E750084D255 /* ParticleSetupResultViewController.m */; };
 		5038C58C1CA21E750084D255 /* ParticleSetupVideoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5591CA21E750084D255 /* ParticleSetupVideoViewController.h */; };
 		5038C58D1CA21E750084D255 /* ParticleSetupVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55A1CA21E750084D255 /* ParticleSetupVideoViewController.m */; };
-		5038C58E1CA21E750084D255 /* ParticleSetupWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55B1CA21E750084D255 /* ParticleSetupWebViewController.h */; };
-		5038C58F1CA21E750084D255 /* ParticleSetupWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55C1CA21E750084D255 /* ParticleSetupWebViewController.m */; };
-		5038C5901CA21E750084D255 /* ParticleUserForgotPasswordViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55D1CA21E750084D255 /* ParticleUserForgotPasswordViewController.h */; };
-		5038C5911CA21E750084D255 /* ParticleUserForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C55E1CA21E750084D255 /* ParticleUserForgotPasswordViewController.m */; };
-		5038C5921CA21E750084D255 /* ParticleUserLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C55F1CA21E750084D255 /* ParticleUserLoginViewController.h */; };
-		5038C5931CA21E750084D255 /* ParticleUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5601CA21E750084D255 /* ParticleUserLoginViewController.m */; };
-		5038C5941CA21E750084D255 /* ParticleUserSignupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5611CA21E750084D255 /* ParticleUserSignupViewController.h */; };
-		5038C5951CA21E750084D255 /* ParticleUserSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5621CA21E750084D255 /* ParticleUserSignupViewController.m */; };
 		5038C5961CA21E750084D255 /* ParticleSetupUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5641CA21E750084D255 /* ParticleSetupUIButton.h */; };
 		5038C5971CA21E750084D255 /* ParticleSetupUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5038C5651CA21E750084D255 /* ParticleSetupUIButton.m */; };
 		5038C5981CA21E750084D255 /* ParticleSetupUIElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 5038C5661CA21E750084D255 /* ParticleSetupUIElements.h */; };
@@ -94,14 +86,6 @@
 		5038C5581CA21E750084D255 /* ParticleSetupResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupResultViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5038C5591CA21E750084D255 /* ParticleSetupVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupVideoViewController.h; sourceTree = "<group>"; };
 		5038C55A1CA21E750084D255 /* ParticleSetupVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupVideoViewController.m; sourceTree = "<group>"; };
-		5038C55B1CA21E750084D255 /* ParticleSetupWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSetupWebViewController.h; sourceTree = "<group>"; };
-		5038C55C1CA21E750084D255 /* ParticleSetupWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupWebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C55D1CA21E750084D255 /* ParticleUserForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleUserForgotPasswordViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C55E1CA21E750084D255 /* ParticleUserForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserForgotPasswordViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C55F1CA21E750084D255 /* ParticleUserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleUserLoginViewController.h; sourceTree = "<group>"; };
-		5038C5601CA21E750084D255 /* ParticleUserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserLoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		5038C5611CA21E750084D255 /* ParticleUserSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleUserSignupViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5038C5621CA21E750084D255 /* ParticleUserSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleUserSignupViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5038C5641CA21E750084D255 /* ParticleSetupUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUIButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5038C5651CA21E750084D255 /* ParticleSetupUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParticleSetupUIButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5038C5661CA21E750084D255 /* ParticleSetupUIElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParticleSetupUIElements.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -217,14 +201,6 @@
 				5038C5581CA21E750084D255 /* ParticleSetupResultViewController.m */,
 				5038C5591CA21E750084D255 /* ParticleSetupVideoViewController.h */,
 				5038C55A1CA21E750084D255 /* ParticleSetupVideoViewController.m */,
-				5038C55B1CA21E750084D255 /* ParticleSetupWebViewController.h */,
-				5038C55C1CA21E750084D255 /* ParticleSetupWebViewController.m */,
-				5038C55D1CA21E750084D255 /* ParticleUserForgotPasswordViewController.h */,
-				5038C55E1CA21E750084D255 /* ParticleUserForgotPasswordViewController.m */,
-				5038C55F1CA21E750084D255 /* ParticleUserLoginViewController.h */,
-				5038C5601CA21E750084D255 /* ParticleUserLoginViewController.m */,
-				5038C5611CA21E750084D255 /* ParticleUserSignupViewController.h */,
-				5038C5621CA21E750084D255 /* ParticleUserSignupViewController.m */,
 				5038C5631CA21E750084D255 /* UI Elements */,
 			);
 			path = UI;
@@ -281,23 +257,19 @@
 				5038C5A31CA21E750084D255 /* ParticleSetupMainController.h in Headers */,
 				5038C59D1CA21E750084D255 /* ParticleSetupUIViewController.h in Headers */,
 				5038C5881CA21E750084D255 /* ParticleSetupPasswordEntryViewController.h in Headers */,
-				5038C58E1CA21E750084D255 /* ParticleSetupWebViewController.h in Headers */,
 				5038C5981CA21E750084D255 /* ParticleSetupUIElements.h in Headers */,
 				2DB2F02823274FB2002826F0 /* ParticleGetLocationPermissionViewController.h in Headers */,
 				5038C5821CA21E750084D255 /* ParticleGetReadyViewController.h in Headers */,
-				5038C5901CA21E750084D255 /* ParticleUserForgotPasswordViewController.h in Headers */,
 				5038C5991CA21E750084D255 /* ParticleSetupUILabel.h in Headers */,
 				5038C58A1CA21E750084D255 /* ParticleSetupResultViewController.h in Headers */,
 				5038C57E1CA21E750084D255 /* ParticleConnectingProgressViewController.h in Headers */,
 				5038C5761CA21E750084D255 /* ParticleSetupCommManager.h in Headers */,
-				5038C5941CA21E750084D255 /* ParticleUserSignupViewController.h in Headers */,
 				5038C59F1CA21E750084D255 /* ParticleSetupWifiTableViewCell.h in Headers */,
 				5038C59B1CA21E750084D255 /* ParticleSetupUISpinner.h in Headers */,
 				5038C5861CA21E750084D255 /* ParticleSelectNetworkViewController.h in Headers */,
 				5038C5781CA21E750084D255 /* ParticleSetupConnection.h in Headers */,
 				5038C5961CA21E750084D255 /* ParticleSetupUIButton.h in Headers */,
 				5038C58C1CA21E750084D255 /* ParticleSetupVideoViewController.h in Headers */,
-				5038C5921CA21E750084D255 /* ParticleUserLoginViewController.h in Headers */,
 				5038C5841CA21E750084D255 /* ParticleManualNetworkViewController.h in Headers */,
 				5038C5741CA21E750084D255 /* Reachability.h in Headers */,
 				5038C5801CA21E750084D255 /* ParticleDiscoverDeviceViewController.h in Headers */,
@@ -378,16 +350,13 @@
 				5038C58B1CA21E750084D255 /* ParticleSetupResultViewController.m in Sources */,
 				5038C5751CA21E750084D255 /* Reachability.m in Sources */,
 				5038C58D1CA21E750084D255 /* ParticleSetupVideoViewController.m in Sources */,
-				5038C5931CA21E750084D255 /* ParticleUserLoginViewController.m in Sources */,
 				5038C59C1CA21E750084D255 /* ParticleSetupUISpinner.m in Sources */,
 				2DB2F02723274FB2002826F0 /* ParticleGetLocationPermissionViewController.m in Sources */,
 				5038C5A21CA21E750084D255 /* ParticleSetupCustomization.m in Sources */,
-				5038C5911CA21E750084D255 /* ParticleUserForgotPasswordViewController.m in Sources */,
 				5038C5971CA21E750084D255 /* ParticleSetupUIButton.m in Sources */,
 				5038C5871CA21E750084D255 /* ParticleSelectNetworkViewController.m in Sources */,
 				5038C5851CA21E750084D255 /* ParticleManualNetworkViewController.m in Sources */,
 				5038C57F1CA21E750084D255 /* ParticleConnectingProgressViewController.m in Sources */,
-				5038C58F1CA21E750084D255 /* ParticleSetupWebViewController.m in Sources */,
 				5038C59A1CA21E750084D255 /* ParticleSetupUILabel.m in Sources */,
 				5038C5A01CA21E750084D255 /* ParticleSetupWifiTableViewCell.m in Sources */,
 				5038C5A41CA21E750084D255 /* ParticleSetupMainController.m in Sources */,
@@ -398,7 +367,6 @@
 				5038C5891CA21E750084D255 /* ParticleSetupPasswordEntryViewController.m in Sources */,
 				5038C5811CA21E750084D255 /* ParticleDiscoverDeviceViewController.m in Sources */,
 				5038C59E1CA21E750084D255 /* ParticleSetupUIViewController.m in Sources */,
-				5038C5951CA21E750084D255 /* ParticleUserSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +491,7 @@
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = ParticleDeviceSetupLibrary/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.particle.ParticleDeviceSetupLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -552,6 +521,7 @@
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = ParticleDeviceSetupLibrary/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.particle.ParticleDeviceSetupLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";

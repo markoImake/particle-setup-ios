@@ -39,6 +39,7 @@
 		50D095991AD5BB6E008EDBD7 /* ParticleSetup.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D095981AD5BB6E008EDBD7 /* ParticleSetup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50E01B051B7AFC510020714F /* ParticleSetupResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E01B031B7AFC510020714F /* ParticleSetupResultViewController.m */; };
 		50EECD9F1CEE8ABF00192EF9 /* ParticleSetup.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 509080DC1ACF494A0014E7DF /* ParticleSetup.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BB3A1FD8B74CC5F0280D5AB2 /* libPods-ParticleSetup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5B09391690203FACC38E6D /* libPods-ParticleSetup.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,7 @@
 		00E1D8A324B3981D5C61BC42 /* Pods-ParticleSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.release.xcconfig"; sourceTree = "<group>"; };
 		0F0C037B32A2CEAB8B682E76 /* Pods-ParticleSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParticleSetup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup.debug.xcconfig"; sourceTree = "<group>"; };
 		12F8565380E77481E5452695 /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5B09391690203FACC38E6D /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ParticleSetup.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50016D281F54CA0A007C743A /* libPods-ParticleSetup.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParticleSetup.a"; path = "Pods/../build/Debug-iphoneos/libPods-ParticleSetup.a"; sourceTree = "<group>"; };
 		50016D2A1F54CA16007C743A /* libParticle-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libParticle-SDK.a"; path = "Pods/../build/Debug-iphoneos/Particle-SDK/libParticle-SDK.a"; sourceTree = "<group>"; };
 		500638F61F57FD9A00D09FB2 /* Particle-SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Particle-SDK.h"; path = "particle-setup-ios/Pods/Particle-SDK/Pod/Classes/Particle-SDK.h"; sourceTree = "<group>"; };
@@ -135,12 +137,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5EB2B6B32932F37C3A9A43 /* libPods-ParticleSetup.a in Frameworks */,
+				BB3A1FD8B74CC5F0280D5AB2 /* libPods-ParticleSetup.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CCD074DF374CAE762907FBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A5B09391690203FACC38E6D /* libPods-ParticleSetup.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		500638FC1F57FE3900D09FB2 /* Misc headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +168,7 @@
 				509081611ACF66E60014E7DF /* Classes */,
 				509081AE1ACF6A8A0014E7DF /* Resources */,
 				6983E8FE21D2126E573DA5A7 /* Pods */,
+				2CCD074DF374CAE762907FBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -449,7 +461,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ParticleSetup/Pods-ParticleSetup-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/1PasswordExtension/OnePasswordExtensionResources.bundle,
+				"$PODS_CONFIGURATION_BUILD_DIR/1PasswordExtension/OnePasswordExtensionResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
