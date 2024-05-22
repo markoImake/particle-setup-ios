@@ -34,8 +34,8 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     ParticleSetupConnectionProgressStateConfigureCredentials = 0,
     ParticleSetupConnectionProgressStateConnectToWifi,
     ParticleSetupConnectionProgressStateWaitForCloudConnection,
-    ParticleSetupConnectionProgressStateCheckInternetConnectivity,
-    ParticleSetupConnectionProgressStateVerifyDeviceOwnership,
+    // ParticleSetupConnectionProgressStateCheckInternetConnectivity,
+    // ParticleSetupConnectionProgressStateVerifyDeviceOwnership,
     __ParticleSetupConnectionProgressStateLast
 };
 
@@ -360,7 +360,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)checkForInternetConnectivity // step 3
 {
-    
+    [self getDeviceAndFinishSetup];
 //    // --- reachability check ---
 //    if (!self.hostReachable)
 //    {
