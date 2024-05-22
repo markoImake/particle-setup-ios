@@ -1121,12 +1121,6 @@
                                     <constraint firstAttribute="height" constant="133" id="b6Q-1R-18e"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-oq-6AP" customClass="ParticleSetupUILabel">
-                                <rect key="frame" x="141.5" y="581" width="92" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXe-vV-Moq">
                                 <rect key="frame" x="21" y="28" width="47" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1194,8 +1188,6 @@
                             <constraint firstItem="Lvv-JO-jmv" firstAttribute="trailing" secondItem="shz-9D-Jdd" secondAttribute="trailing" id="PhJ-Co-IYA"/>
                             <constraint firstItem="o1n-a0-Lhf" firstAttribute="top" secondItem="Ald-Di-X3r" secondAttribute="bottom" constant="15" id="Uxu-ce-veZ"/>
                             <constraint firstItem="Dom-kg-WP6" firstAttribute="leading" secondItem="xP3-D7-C6C" secondAttribute="leadingMargin" id="Yau-dy-lFo"/>
-                            <constraint firstItem="shz-9D-Jdd" firstAttribute="centerX" secondItem="2ys-oq-6AP" secondAttribute="centerX" id="b55-e2-WTK"/>
-                            <constraint firstItem="UNy-JD-Bob" firstAttribute="top" secondItem="2ys-oq-6AP" secondAttribute="bottom" constant="8" id="j9v-OG-VVk"/>
                             <constraint firstItem="shz-9D-Jdd" firstAttribute="bottom" secondItem="UNy-JD-Bob" secondAttribute="bottom" constant="20" id="kxC-aR-8MR"/>
                             <constraint firstItem="0dN-4C-Qip" firstAttribute="top" secondItem="Dom-kg-WP6" secondAttribute="bottom" id="n9d-qU-yAx"/>
                             <constraint firstItem="ecM-S2-nZC" firstAttribute="top" secondItem="shz-9D-Jdd" secondAttribute="top" constant="65" id="pn2-Xh-szP"/>
@@ -1219,8 +1211,6 @@
                         <outlet property="instructionStep1" destination="m7e-HY-AYj" id="T2a-9v-GJv"/>
                         <outlet property="instructionStep2" destination="oHW-yI-y9u" id="A4Y-m4-h2g"/>
                         <outlet property="instructionStep3" destination="y1h-An-sff" id="SIU-s9-eLR"/>
-                        <outlet property="loggedInLabel" destination="2ys-oq-6AP" id="ffy-Z0-AGK"/>
-                        <outlet property="loggedInUserLabel" destination="2ys-oq-6AP" id="JEj-QU-quu"/>
                         <outlet property="logoutButton" destination="kZE-3U-nVp" id="Cqh-kc-kZa"/>
                         <outlet property="productImageView" destination="Dom-kg-WP6" id="MaW-SP-VoF"/>
                         <outlet property="readyButton" destination="UNy-JD-Bob" id="rdb-Dm-3Vu"/>
