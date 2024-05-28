@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSString *modeButtonName;
 @property (nonatomic, strong) NSString *listenModeLEDColorName;
 @property (nonatomic, strong) NSString *networkNamePrefix;
+@property (nonatomic, strong) NSString *networkNamePrefixAlt;
 
 // TODO: kill forgot password links
 @property (nonatomic, strong) NSURL *termsOfServiceLinkURL; // URL for terms of service of the app/device usage

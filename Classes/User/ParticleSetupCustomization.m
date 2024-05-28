@@ -55,6 +55,7 @@
       
         self.modeButtonName = @"Setup button";
         self.networkNamePrefix = @"Photon";
+        self.networkNamePrefixAlt = @"Photon";
         self.listenModeLEDColorName = @"blue";
 //        self.appName = self.brandName;// @"ParticleSetup";
         self.fontSizeOffset = 0;

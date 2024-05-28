@@ -223,7 +223,7 @@
 -(void)checkPhotonConnection:(id)sender
 {
 //    NSLog(@"checkPhotonConnection");
-    if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
+    if (!([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix] || ![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt]))
     {
         [self.checkConnectionTimer invalidate];
         [self.delegate willPopBackToDeviceDiscovery];

@@ -312,14 +312,14 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     if (self.currentState == ParticleSetupConnectionProgressStateConnectToWifi)
     {
         [managerForConnect connectAP:^(id responseCode, NSError *error) {
-            while (([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
+            while ((([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix]) || ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt])) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
                 [NSThread sleepForTimeInterval:2.0];
                 self.disconnectRetries++;
             }
             
             // are we still connected to device?
-            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
+            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix] || [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt])
             {
                 if (self.connectAPRetries++ >= kMaxRetriesConnectAP)
                 {

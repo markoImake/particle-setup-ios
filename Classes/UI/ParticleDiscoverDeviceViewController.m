@@ -229,8 +229,14 @@
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
         {
-            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
-            {
+            bool ogParticle = [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix];
+            bool hybridParticle = [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt];
+            if (ogParticle || hybridParticle) {
+               // save connected prefix ap name to device settings
+               NSString *value = ogParticle ? [ParticleSetupCustomization sharedInstance].networkNamePrefix : [ParticleSetupCustomization sharedInstance].networkNamePrefixAlt;
+               NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+               [defaults setObject:value forKey:@"particleConnectedPrefix"];
+               [defaults synchronize];
                 UILocalNotification *localNotification = [[UILocalNotification alloc] init];
                 localNotification.alertAction = @"Connected";
                 NSString *notifText = [NSString stringWithFormat:@"Your phone has connected to %@. Tap to continue Setup.",[ParticleSetupCustomization sharedInstance].deviceName];
@@ -340,7 +346,14 @@
             UIApplicationState state = [[UIApplication sharedApplication] applicationState];
             if (state == UIApplicationStateActive) {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix]) {
+                    bool ogParticle = [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix];
+                    bool hybridParticle = [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt];
+                    if (ogParticle || hybridParticle) {
+                        // save connected prefix ap name to device settings
+                        NSString *value = ogParticle ? [ParticleSetupCustomization sharedInstance].networkNamePrefix : [ParticleSetupCustomization sharedInstance].networkNamePrefixAlt;
+                        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                        [defaults setObject:value forKey:@"particleConnectedPrefix"];
+                        [defaults synchronize];
                         [self startPhotonQuery];
                     }
                 });
