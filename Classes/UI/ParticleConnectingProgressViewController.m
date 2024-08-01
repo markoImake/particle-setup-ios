@@ -27,7 +27,7 @@ NSInteger const kMaxRetriesDisconnectFromDevice = 10;
 NSInteger const kMaxRetriesClaim = 15;
 NSInteger const kMaxRetriesConfigureAP = 5;
 NSInteger const kMaxRetriesConnectAP = 5;
-NSInteger const kMaxRetriesReachability = 5;
+NSInteger const kMaxRetriesReachability = 10;
 NSInteger const kWaitForCloudConnectionTime = 1;
 
 typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
@@ -360,59 +360,65 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
 
 -(void)checkForInternetConnectivity // step 3
 {
-    [self getDeviceAndFinishSetup];
-//    // --- reachability check ---
-//    if (!self.hostReachable)
-//    {
-//        for (int i=0; i<kMaxRetriesReachability-1; i++)
-//        {
-//            if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
-//            {
-////                [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
-////                    if (!error)
-////                    {
-////                        NSLog(@"getDevices completed - to wake radio up");
-//                        self.apiReachable = YES;
-////                    }
-////                }];
-//            }
-//            
-//            if ([self.hostReachability currentReachabilityStatus] != NotReachable)
-//            {
-//                self.hostReachable = YES;
-//                break;
-//            }
-//            else
-//            {
-//                [NSThread sleepForTimeInterval:2.0];
-//            }
-//        }
-//    }
-//    
+
+   // --- reachability check ---
+   if (!self.hostReachable)
+   {
+       for (int i=0; i<kMaxRetriesReachability-1; i++)
+       {
+           if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
+           {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSURL *url = [NSURL URLWithString:@"http://community.grainfather.com/api"];
+                    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                    NSURLSession *session = [NSURLSession sharedSession];
+                    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                        if (error == nil) {
+                            self.apiReachable = YES;
+                        }
+                    }];
+                    [task resume];
+                });
+           }
+           
+           if ([self.hostReachability currentReachabilityStatus] != NotReachable)
+           {
+               self.hostReachable = YES;
+               break;
+           }
+           else
+           {
+               [NSThread sleepForTimeInterval:2.0];
+           }
+       }
+   }
+
+   [self getDeviceAndFinishSetup];
+   
 //    if ((self.hostReachable) || (self.apiReachable))
 //    {
-//        self.claimRetries = 0;
-//        // check that SSID disappears here and didn't come back
+    //    self.claimRetries = 0;
+       // check that SSID disappears here and didn't come back
 //        if (self.needToClaimDevice)
 //        {
 //            [self nextConnectionProgressState];
 //            [self checkDeviceIsClaimed];
-////            NSLog(@"Subscribing to status events for %@",self.deviceID);
+// //            NSLog(@"Subscribing to status events for %@",self.deviceID);
 //            self.statusEventID = [[ParticleCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"spark" handler:^(ParticleEvent * _Nullable event, NSError * _Nullable error) {
-////                NSLog(@"got status event");
+// //                NSLog(@"got status event");
 //                if ([event.deviceID isEqualToString:self.deviceID]) {
 //                    self.gotStatusEventFromDevice = YES;
-////                    NSLog(@"from our device");
+// //                    NSLog(@"from our device");
 //                }
 //            }];
 //        }
 //        else
 //        {
-//            // finished
-//            [self setCurrentConnectionProgressStateError:NO];
-//            [self finishSetupWithResult:ParticleSetupMainControllerResultSuccessNotClaimed];
-//            
-//        }
+           // finished
+        //    [self setCurrentConnectionProgressStateError:NO];
+        //    [self finishSetupWithResult:ParticleSetupMainControllerResultSuccessNotClaimed];
+           
+    //    }
 //    }
 //    else
 //    {

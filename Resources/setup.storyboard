@@ -642,6 +642,36 @@
                                     <outlet property="spinner" destination="jMw-h9-m48" id="ihf-ot-Vph"/>
                                 </connections>
                             </view>
+                            <view hidden="YES" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7h-qk-v7W" customClass="ParticleConnectingProgressView">
+                                <rect key="frame" x="16" y="304" width="343" height="40"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spinner_big" translatesAutoresizingMaskIntoConstraints="NO" id="Idj-bo-wgj">
+                                        <rect key="frame" x="8" y="8.5" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="6Nd-Fw-dIL"/>
+                                            <constraint firstAttribute="width" constant="24" id="8Wg-yC-CHK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check for internet connectivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvI-AW-ch0">
+                                        <rect key="frame" x="40" y="10" width="234.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Idj-bo-wgj" secondAttribute="centerY" constant="-0.5" id="1qo-0d-CBE"/>
+                                    <constraint firstItem="AvI-AW-ch0" firstAttribute="leading" secondItem="Idj-bo-wgj" secondAttribute="trailing" constant="8" id="9GO-nn-wC7"/>
+                                    <constraint firstItem="Idj-bo-wgj" firstAttribute="leading" secondItem="m7h-qk-v7W" secondAttribute="leading" constant="8" id="Zyc-y6-BQr"/>
+                                    <constraint firstItem="AvI-AW-ch0" firstAttribute="centerY" secondItem="Idj-bo-wgj" secondAttribute="centerY" id="n0C-eN-fDs"/>
+                                    <constraint firstAttribute="height" constant="40" id="yGb-cy-4J6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="label" destination="AvI-AW-ch0" id="ns0-JR-Vdp"/>
+                                    <outlet property="spinner" destination="Idj-bo-wgj" id="HeU-X8-jj3"/>
+                                </connections>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3W-op-31b" customClass="ParticleConnectingProgressView">
                                 <rect key="frame" x="16" y="178" width="343" height="40"/>
                                 <subviews>
@@ -681,10 +711,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Tmf-mZ-SSF" secondAttribute="trailing" id="8IY-4O-2ci"/>
                             <constraint firstItem="cbz-qj-dtX" firstAttribute="centerX" secondItem="eud-gX-Qzz" secondAttribute="centerX" id="DVc-xY-a4A"/>
                             <constraint firstItem="sVc-hH-dHk" firstAttribute="leading" secondItem="dyM-qm-UaJ" secondAttribute="leadingMargin" id="EcO-R3-W8Q"/>
+                            <constraint firstItem="m7h-qk-v7W" firstAttribute="trailing" secondItem="dyM-qm-UaJ" secondAttribute="trailingMargin" id="Fhw-v2-tjF"/>
                             <constraint firstItem="cbz-qj-dtX" firstAttribute="centerX" secondItem="sVc-hH-dHk" secondAttribute="centerX" id="Gbn-bI-dwP"/>
                             <constraint firstItem="l7F-fD-FkN" firstAttribute="leading" secondItem="dyM-qm-UaJ" secondAttribute="leadingMargin" id="ILy-GI-FBy"/>
                             <constraint firstItem="l7F-fD-FkN" firstAttribute="trailing" secondItem="dyM-qm-UaJ" secondAttribute="trailingMargin" id="KyS-Qz-K2Q"/>
                             <constraint firstItem="cOI-4H-O0J" firstAttribute="top" secondItem="sVc-hH-dHk" secondAttribute="bottom" constant="8" id="MvW-Cv-MyL"/>
+                            <constraint firstItem="m7h-qk-v7W" firstAttribute="top" secondItem="c42-pG-Oeu" secondAttribute="bottom" constant="2" id="PLp-Te-Y5k"/>
+                            <constraint firstItem="m7h-qk-v7W" firstAttribute="leading" secondItem="dyM-qm-UaJ" secondAttribute="leadingMargin" id="PWV-bg-bSp"/>
                             <constraint firstItem="cbz-qj-dtX" firstAttribute="centerX" secondItem="cOI-4H-O0J" secondAttribute="centerX" id="QDx-7G-uz9"/>
                             <constraint firstItem="sVc-hH-dHk" firstAttribute="top" secondItem="eud-gX-Qzz" secondAttribute="bottom" constant="36" id="RRz-NG-iTf"/>
                             <constraint firstItem="cbz-qj-dtX" firstAttribute="trailing" secondItem="lg7-eH-yF2" secondAttribute="trailing" id="RuE-vk-pCR"/>
@@ -714,6 +747,7 @@
                         <outletCollection property="progressViews" destination="R3W-op-31b" id="oEf-Q2-IWd"/>
                         <outletCollection property="progressViews" destination="l7F-fD-FkN" id="41W-Qg-JDG"/>
                         <outletCollection property="progressViews" destination="c42-pG-Oeu" id="Uhs-mZ-aBx"/>
+                        <outletCollection property="progressViews" destination="m7h-qk-v7W" id="o2G-aS-c6L"/>
                         <segue destination="fH1-BW-ERq" kind="show" identifier="done" id="HmP-Rg-LHN"/>
                     </connections>
                 </viewController>
