@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     ParticleSetupConnectionProgressStateConfigureCredentials = 0,
     ParticleSetupConnectionProgressStateConnectToWifi,
     ParticleSetupConnectionProgressStateWaitForCloudConnection,
-    // ParticleSetupConnectionProgressStateCheckInternetConnectivity,
+    ParticleSetupConnectionProgressStateCheckInternetConnectivity,
     // ParticleSetupConnectionProgressStateVerifyDeviceOwnership,
     __ParticleSetupConnectionProgressStateLast
 };
@@ -394,126 +394,20 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
    }
 
    [self getDeviceAndFinishSetup];
-   
-//    if ((self.hostReachable) || (self.apiReachable))
-//    {
-    //    self.claimRetries = 0;
-       // check that SSID disappears here and didn't come back
-//        if (self.needToClaimDevice)
-//        {
-//            [self nextConnectionProgressState];
-//            [self checkDeviceIsClaimed];
-// //            NSLog(@"Subscribing to status events for %@",self.deviceID);
-//            self.statusEventID = [[ParticleCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"spark" handler:^(ParticleEvent * _Nullable event, NSError * _Nullable error) {
-// //                NSLog(@"got status event");
-//                if ([event.deviceID isEqualToString:self.deviceID]) {
-//                    self.gotStatusEventFromDevice = YES;
-// //                    NSLog(@"from our device");
-//                }
-//            }];
-//        }
-//        else
-//        {
-           // finished
-        //    [self setCurrentConnectionProgressStateError:NO];
-        //    [self finishSetupWithResult:ParticleSetupMainControllerResultSuccessNotClaimed];
-           
-    //    }
-//    }
-//    else
-//    {
-//        [self setCurrentConnectionProgressStateError:YES];
-//        [self finishSetupWithResult:ParticleSetupMainControllerResultFailureCannotDisconnectFromDevice];
-//    }
     
 }
 
 
 -(void)getDeviceAndFinishSetup
 {
-    // get the claimed device to report it back to the user
-//    [[ParticleCloud sharedInstance] getDevice:self.deviceID completion:^(ParticleDevice *device, NSError *error) {
-//        // --- Done ---
-//        if (!error)
-//        {
-//            self.device = device;
-//            [self nextConnectionProgressState];
-            
-//            if (device.connected)
-                self.setupResult = ParticleSetupMainControllerResultSuccess;
-//            else
-//                self.setupResult = ParticleSetupMainControllerResultSuccessDeviceOffline;
-            
-//            if (self.gotStatusEventFromDevice) { // that means device is or was online and now probably OTAing which is fine
-//                self.setupResult = ParticleSetupMainControllerResultSuccess;
-//            }
+
+           [self nextConnectionProgressState];
+            self.setupResult = ParticleSetupMainControllerResultSuccess;
             
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 [self performSegueWithIdentifier:@"done" sender:self];
             });
-//        }
-//        else
-//        {
-//            [self setCurrentConnectionProgressStateError:YES]; // this should not happen ever
-//            [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
-//        }
-//    }];
-}
-
-
-
--(void)checkDeviceIsClaimed // step 4
-{
-    
-        [self getDeviceAndFinishSetup];
-//    // --- Claim device ---
-////    [[ParticleCloud sharedInstance] claimDevice:self.deviceID completion:^(NSError *error) {
-//    if (self.gotStatusEventFromDevice) {
-////        NSLog(@"received event from setup device, finishing setup successfully");
-//        [self getDeviceAndFinishSetup];
-//    }
-//    
-//    [[ParticleCloud sharedInstance] getDevices:^(NSArray *devices, NSError *error) {
-//        BOOL deviceClaimed = NO;
-//        if (devices)
-//        {
-//            for (ParticleDevice *device in devices)
-//            {
-////                NSLog(@"list device ID: %@, setup device ID: %@",device.id,self.deviceID);
-//                if ([device.id isEqualToString:self.deviceID])
-//                {
-//                    // device now appear's in users claimed devices so it's claimed
-//                    deviceClaimed = YES;
-//                }
-//            }
-//        }
-//        
-//        if ((error) || (!deviceClaimed))
-//        {
-//            self.claimRetries++;
-////            NSLog(@"Claim try %ld",(long)self.claimRetries);
-//            if (self.claimRetries >= kMaxRetriesClaim-1)
-//            {
-//                [self setCurrentConnectionProgressStateError:YES];
-//                [self finishSetupWithResult:ParticleSetupMainControllerResultFailureClaiming];
-//            }
-//            else
-//            {
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                    [self checkDeviceIsClaimed]; // recursion retry
-//                    return;
-//                });
-//                
-//            }
-//        }
-//        else
-//        {
-//            [self getDeviceAndFinishSetup];
-//
-//
-//        }
-//    }];
     
 }
 
