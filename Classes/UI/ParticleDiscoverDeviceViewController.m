@@ -144,12 +144,10 @@
 
 -(void)restartDeviceDetectionTimer
 {
-    NSLog(@"restartDeviceDetectionTimer called");
     [self.checkConnectionTimer invalidate];
     self.checkConnectionTimer = nil;
 
     if (!self.didGoToWifiListScreen) {
-        NSLog(@"restartDeviceDetectionTimer schedule calling checkDeviceWifiConnection in 2.5sec");
         self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(checkDeviceWifiConnection:) userInfo:nil repeats:YES];
     }
         
@@ -167,7 +165,6 @@
 
 -(void)willPopBackToDeviceDiscovery
 {
-    NSLog(@"willPopBackToDeviceDiscovery");
     self.didGoToWifiListScreen = NO;
     [self restartDeviceDetectionTimer];
 }
@@ -280,14 +277,11 @@
 
 -(void)checkDeviceWifiConnection:(id)sender
 {
-    NSLog(@"ParticleDiscover -> checkDeviceWifiConnection");
     if ((![CLLocationManager locationServicesEnabled] || ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways))) {
-        NSLog(@"ParticleDiscover -> checkDeviceWifiConnection case 1");
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.navigationController popViewControllerAnimated:NO];
         });
     } else {
-        NSLog(@"ParticleDiscover -> checkDeviceWifiConnection case 2");
         dispatch_async(dispatch_get_main_queue(), ^{
             UIApplicationState state = [[UIApplication sharedApplication] applicationState];
             if (state == UIApplicationStateActive) {
