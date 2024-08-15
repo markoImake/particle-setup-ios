@@ -13,9 +13,6 @@
 #import "ParticleSetupCommManager.h"
 #import "ParticleSetupCustomization.h"
 #import "ParticleSetupMainController.h"
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
 
 @interface ParticleSetupPasswordEntryViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -95,9 +92,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Password Entry Screen"];
-#endif
 }
 
 

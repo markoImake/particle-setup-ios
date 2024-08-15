@@ -13,9 +13,6 @@
 #import "ParticleSetupCommManager.h"
 #import "ParticleSetupPasswordEntryViewController.h"
 #import "ParticleSetupCustomization.h"
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
 
 @interface ParticleManualNetworkViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *brandImageView;
@@ -75,9 +72,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Manual network entry screen"];
-#endif
 }
 
 
@@ -128,16 +122,10 @@
         [self.view endEditing:YES];
         if (self.networkRequiresPasswordSwitch.isOn)
         {
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected secured network"];
-#endif
             [self performSegueWithIdentifier:@"require_password" sender:self];
         }
         else
         {
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected open network"];
-#endif
             [self performSegueWithIdentifier:@"connect" sender:self];
             
         }

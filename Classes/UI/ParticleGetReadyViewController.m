@@ -20,9 +20,6 @@
 #import "ParticleSetupResultViewController.h"
 #import "ParticleSetupCustomization.h"
 #import "ParticleGetLocationPermissionViewController.h"
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
 
 
 @interface ParticleGetReadyViewController ()
@@ -236,10 +233,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Get ready screen"];
-//    NSLog(@"analytics enabled");
-#endif
 }
 
 

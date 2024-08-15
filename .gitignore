@@ -16,7 +16,6 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-Pods/*
 
 # Carthage
 # Avoids `dirty` git flags when Carthage is ran with `--use-submodules`

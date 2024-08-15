@@ -9,9 +9,7 @@
 #import "ParticleSetupVideoViewController.h"
 #import "ParticleSetupCustomization.h"
 #import <MediaPlayer/MediaPlayer.h>
-#if ANALYTICS
-#import <Mixpanel.h>
-#endif
+
 
 @interface ParticleSetupVideoViewController ()
 @property (strong, nonatomic) MPMoviePlayerController *videoPlayer;
@@ -84,9 +82,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-#ifdef ANALYTICS
-    [[Mixpanel sharedInstance] track:@"Device Setup: How-To video screen activity"];
-#endif
+
     
 }
 
@@ -107,9 +103,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     
     //    self.videoViewWidth.constant = ((self.videoView.frame.size.height * 9.0)/16.0);
-#ifdef ANALYTICS
-    [[Mixpanel sharedInstance] timeEvent:@"Device Setup: How-To video screen activity"];
-#endif
+
    
     
     if (self.videoFilePath)

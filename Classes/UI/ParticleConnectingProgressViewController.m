@@ -19,9 +19,6 @@
 #endif
 #import "ParticleSetupUIElements.h"
 #import "ParticleSetupResultViewController.h"
-#ifdef ANALYTICS
-#import "SEGAnalytics.h"
-#endif
 
 NSInteger const kMaxRetriesDisconnectFromDevice = 10;
 NSInteger const kMaxRetriesClaim = 15;
@@ -128,9 +125,6 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     self.currentStateView.label.textColor = [ParticleSetupCustomization sharedInstance].normalTextColor;
     [self startAnimatingSpinner:self.currentStateView.spinner];
     [self tintConnectionProgressStateSpinner];
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Connecting progress screen"];
-#endif
     
 }
 

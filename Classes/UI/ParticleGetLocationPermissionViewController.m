@@ -20,10 +20,6 @@
 #import "ParticleSetupCustomization.h"
 #import "ParticleGetLocationPermissionViewController.h"
 
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
-
 
 @interface ParticleGetLocationPermissionViewController ()
 
@@ -87,10 +83,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    #ifdef ANALYTICS
-        [[SEGAnalytics sharedAnalytics] track:@"DeviceSetup_GetLocationPermission"];
-    //    NSLog(@"analytics enabled");
-    #endif
 }
 
 

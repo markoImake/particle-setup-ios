@@ -17,9 +17,6 @@
 #import "ParticleSetupCustomization.h"
 #import "ParticleSetupWifiTableViewCell.h"
 
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
 
 // TODO: move it somewhere else
 #define kParticleWifiRSSIThresholdStrong   -56
@@ -326,17 +323,11 @@
     
     if (secInt == ParticleSetupWifiSecurityTypeOpen)
     {
-#ifdef ANALYTICS
-        [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected open network"];
-#endif
         [self performSegueWithIdentifier:@"connect" sender:self];
         
     }
     else
     {
-#ifdef ANALYTICS
-        [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Selected secured network"];
-#endif
         [self performSegueWithIdentifier:@"require_password" sender:self];
     }
   
@@ -365,9 +356,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Select Network Screen"];
-#endif
 }
 
 

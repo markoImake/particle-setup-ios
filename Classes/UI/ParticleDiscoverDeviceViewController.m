@@ -27,9 +27,6 @@
 #import "ParticleSetupConnection.h"
 #import "ParticleSetupCommManager.h"
 
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
 
 @interface ParticleDiscoverDeviceViewController () <NSStreamDelegate, UIAlertViewDelegate, ParticleSelectNetworkViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *wifiSignalImageView;
@@ -126,12 +123,6 @@
     [self.cancelSetupButton setTitleColor:navBarButtonsColor forState:UIControlStateNormal];
 
 
-    
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Device discovery screen"];
-#endif
-
-
 }
 
 
@@ -153,12 +144,15 @@
 
 -(void)restartDeviceDetectionTimer
 {
-//    NSLog(@"restartDeviceDetectionTimer called");
+    NSLog(@"restartDeviceDetectionTimer called");
     [self.checkConnectionTimer invalidate];
     self.checkConnectionTimer = nil;
 
-    if (!self.didGoToWifiListScreen)
+    if (!self.didGoToWifiListScreen) {
+        NSLog(@"restartDeviceDetectionTimer schedule calling checkDeviceWifiConnection in 2.5sec");
         self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(checkDeviceWifiConnection:) userInfo:nil repeats:YES];
+    }
+        
 }
 
 -(void)goToWifiListScreen
@@ -206,25 +200,7 @@
 
 -(void)checkDeviceConnectionForNotification:(NSTimer *)timer
 {
-//    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
-//    if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
-//    {
-////        NSLog(@"checkDeviceConnectionForNotification (background)");
-//
-//        if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
-//        {
-//            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-//            localNotification.alertAction = @"Connected";
-//            NSString *notifText = [NSString stringWithFormat:@"Your phone has connected to %@. Tap to continue Setup.",[ParticleSetupCustomization sharedInstance].deviceName];
-//            localNotification.alertBody = notifText;
-//            localNotification.alertAction = @"open"; // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-//            localNotification.soundName = UILocalNotificationDefaultSoundName; // play default sound
-//            localNotification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-//            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-//            [timer invalidate];
-//        }
-//    }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
         UIApplicationState state = [[UIApplication sharedApplication] applicationState];
         if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
@@ -262,7 +238,7 @@
     
     
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-//        NSLog(@"Background handler called. Not running background tasks anymore.");
+        NSLog(@"Background handler called. Not running background tasks anymore.");
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
@@ -283,23 +259,6 @@
 
 -(void)startPhotonQuery
 {
-//    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
-//    {
-//        [self.checkConnectionTimer invalidate];
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//
-//            // UI activity indicator
-//            self.wifiSignalImageView.hidden = YES;
-//            [self.spinner startAnimating];
-//        });
-//
-//        // Start connection command chain process with a small delay
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self getDeviceID];
-//        });
-//
-//    }
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive) {
             [self.checkConnectionTimer invalidate];
@@ -316,32 +275,19 @@
             });
         }
     });
-
 }
 
 
 -(void)checkDeviceWifiConnection:(id)sender
 {
-    //    printf("Detect device timer\n");
-    
-    
-//    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
-//    if (state == UIApplicationStateActive)
-//    {
-//        //        NSLog(@"ParticleDiscover -> checkDeviceWifiConnection timer");
-//
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
-//            {
-//                [self startPhotonQuery];
-//            }
-//        });
-//    }
-    if (@available(iOS 13.0, *) && (![CLLocationManager locationServicesEnabled] || ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways))) {
+    NSLog(@"ParticleDiscover -> checkDeviceWifiConnection");
+    if ((![CLLocationManager locationServicesEnabled] || ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways))) {
+        NSLog(@"ParticleDiscover -> checkDeviceWifiConnection case 1");
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.navigationController popViewControllerAnimated:NO];
         });
     } else {
+        NSLog(@"ParticleDiscover -> checkDeviceWifiConnection case 2");
         dispatch_async(dispatch_get_main_queue(), ^{
             UIApplicationState state = [[UIApplication sharedApplication] applicationState];
             if (state == UIApplicationStateActive) {
@@ -471,84 +417,6 @@
 {
         self.needToCheckDeviceClaimed = NO;
         [self goToWifiListScreen];
-//    if (!self.gotOwnershipInfo)
-//    {
-//        [self.checkConnectionTimer invalidate];
-//        self.needToCheckDeviceClaimed = NO;
-//        
-////        self.isDetectedDeviceClaimed = YES; // DEBUG
-//        if (!self.isDetectedDeviceClaimed) // device was never claimed before - so we need to claim it anyways
-//        {
-//            self.needToCheckDeviceClaimed = YES;
-//            [self setDeviceClaimCode];
-//        }
-//        else
-//        {
-//            self.deviceClaimedByUser = NO;
-//            
-//            for (NSString *claimedDeviceID in self.claimedDevices)
-//            {
-//                if ([claimedDeviceID isEqualToString:self.detectedDeviceID])
-//                {
-//                    self.deviceClaimedByUser = YES;
-//                }
-//            }
-//            
-//            // if the user already owns the device it does not need to be set with a claim code but claiming check should be performed as last stage of setup process
-//            if (self.deviceClaimedByUser)
-//                self.needToCheckDeviceClaimed = YES;
-//            
-//            self.gotOwnershipInfo = YES;
-//            
-//            if ((self.isDetectedDeviceClaimed == YES) && (self.deviceClaimedByUser == NO))
-//            {
-//                if (!self.didGoToWifiListScreen)
-//                {
-//
-//                    if ([ParticleCloud sharedInstance].isAuthenticated)
-//                    {
-//                        // that means device is claimed by somebody else - we want to check that with user (and set claimcode if user wants to change ownership)
-////                        NSString *messageStr = [NSString stringWithFormat:@"Do you want to claim ownership of this %@?",[ParticleSetupCustomization sharedInstance].deviceName];
-////                        self.changeOwnershipAlertView = [[UIAlertView alloc] initWithTitle:@"Product ownership" message:messageStr delegate:self cancelButtonTitle:nil otherButtonTitles:@"Yes",@"No",nil];
-////                        [self.checkConnectionTimer invalidate];
-////                        [self.changeOwnershipAlertView show]
-//                        // Don't present 'claim device' alert, just assume user wants to claim device and proceed
-//                        self.needToCheckDeviceClaimed = YES;
-//                        [self setDeviceClaimCode];
-//                    }
-//                    else // user skipped authentication so no need to claim or set claim code
-//                    {
-//                        self.needToCheckDeviceClaimed = NO;
-//                        [self goToWifiListScreen];
-//
-//                    }
-//                }
-//            }
-//            else
-//            {
-//                // no need to set claim code because the device is owned by current user
-//                [self goToWifiListScreen];
-//            }
-//            
-//        }
-//        
-//        // all cases:
-////        (1) device not claimed c=0 — device should also not be in list from API => mobile app assumes user is claiming and sets device claimCode + check its claimed at last stage
-////        (2) device claimed c=1 and already in list from API => mobile app does not ask user about taking ownership because device already belongs to this user, does NOT set claimCode to device (no need) but does check ownership in last setup step
-////        (3) device claimed c=1 and NOT in the list from the API => mobile app asks whether user would like to take ownership. YES: set claimCode and check ownership in last step, NO: doesn't set claimCode, doesn't check ownership in last step
-//    }
-//    else
-//    {
-//        if (self.needToCheckDeviceClaimed)
-//        {
-//            if (!self.deviceClaimedByUser)
-//                [self setDeviceClaimCode];
-//        }
-//        else
-//            [self goToWifiListScreen];
-//        
-//    }
-    
     
 }
 

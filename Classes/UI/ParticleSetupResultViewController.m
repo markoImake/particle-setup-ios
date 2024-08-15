@@ -16,9 +16,6 @@
 #import "ParticleSetupMainController.h"
 #import "ParticleSetupCustomization.h"
 #import "ParticleSetupResultViewController.h"
-#ifdef ANALYTICS
-#import <SEGAnalytics.h>
-#endif
 
 @interface ParticleSetupResultViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet ParticleSetupUILabel *shortMessageLabel;
@@ -88,9 +85,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-#ifdef ANALYTICS
-    [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Setup Result Screen"];
-#endif
 
     
     [super viewWillAppear:animated];
@@ -118,10 +112,6 @@
                 }
 
             }
-            
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Success"];
-#endif
 
             break;
         }
@@ -132,9 +122,6 @@
             self.shortMessageLabel.text = @"SETUP COMPLETED";
             self.longMessageLabel.text = @"Your device has been successfully claimed to your account, however it is offline. If the device was already claimed before this setup, then the Wi-Fi connection may have failed, and you should try setup again.";
             
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Success" properties:@{@"reason":@"device offline"}];
-#endif
             break;
         }
 
@@ -145,9 +132,7 @@
             self.longMessageLabel.text = @"Setup was successful, but since you do not own this device we cannot know if the {device} has connected to the Internet. If you see the WiFi icon with some bars on the screen this means it worked! If not, please restart the setup process.";
             
             
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Success" properties:@{@"reason":@"not claimed"}];
-#endif
+
             break;
             
         }
@@ -159,9 +144,6 @@
             // TODO: add customization point for custom troubleshoot texts
 //            self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} LED is blinking in blue or green this means that you provided wrong Wi-Fi credentials. If {device} LED is breathing cyan an internal cloud issue occured - please contact product support.";
             self.longMessageLabel.text = @"Setup process failed at claiming your {device}, if your {device} display is showing a WiFi icon with a line through it, that means you provided wrong Wi-Fi credentials, please try setup process again.";
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Failure" properties:@{@"reason":@"claiming failed"}];
-#endif
 
             break;
         }
@@ -171,9 +153,6 @@
             self.setupResultImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"failure"];
             self.shortMessageLabel.text = @"OOPS!";
             self.longMessageLabel.text = @"Setup process couldn't disconnect from the {device} Wi-fi network. This is an internal problem with the device, so please try running setup again after resetting your {device} and putting it back in connection mode if needed.";
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Failure" properties:@{@"reason":@"cannot disconnect"}];
-#endif
 
             break;
         }
@@ -184,9 +163,7 @@
             self.setupResultImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"failure"];
             self.shortMessageLabel.text = @"ERROR!";
             self.longMessageLabel.text = @"Setup process couldn't configure the Wi-Fi credentials for your {device}, please try running setup again after resetting your {device} and putting it back in connection mode if needed.";
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Failure" properties:@{@"reason":@"cannot configure"}];
-#endif
+
             break;
         }
             
@@ -195,9 +172,7 @@
             self.setupResultImageView.image = [ParticleSetupMainController loadImageFromResourceBundle:@"failure"];
             self.shortMessageLabel.text = @"UH OH!";
             self.longMessageLabel.text = @"Setup lost connection to the device before finalizing configuration process, please try running setup again after putting {device} back in connection mode.";
-#ifdef ANALYTICS
-            [[SEGAnalytics sharedAnalytics] track:@"Device Setup: Failure" properties:@{@"reason":@"lost connection"}];
-#endif
+
             
             break;
         }
