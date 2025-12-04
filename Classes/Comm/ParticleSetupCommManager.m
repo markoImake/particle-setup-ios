@@ -19,6 +19,14 @@
 #import "Reachability.h"
 @import UIKit;
 
+// iOS 26 fix: Socket headers for connection-based WiFi detection
+#import <sys/socket.h>
+#import <netinet/in.h>
+#import <arpa/inet.h>
+#import <fcntl.h>
+#import <unistd.h>
+#import <CoreFoundation/CoreFoundation.h>
+
 
 #define ENCRYPT_PWD     1
 
@@ -92,26 +100,83 @@ int const kParticleSetupConnectionEndpointPort = 5609;
 
 +(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix
 {
-        // for iOS 8:
-        NSArray *ifs = (__bridge_transfer NSArray *)CNCopySupportedInterfaces();
-        NSDictionary *info;
-        for (NSString *ifnam in ifs) {
-            info = (__bridge_transfer NSDictionary *)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
-            if (info && [info count]) { break; }
+    // iOS 26 fix: CNCopyCurrentNetworkInfo no longer works reliably
+    // Instead, try to connect to the device endpoint to verify we're on the device network
+    // This is more reliable and doesn't require deprecated APIs
+
+    // NSLog(@"[WiFi Detection] Checking for Particle device connection (prefix: %@)...", networkPrefix);
+
+    CFSocketRef socket = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, IPPROTO_TCP, 0, NULL, NULL);
+
+    if (socket == NULL) {
+        // NSLog(@"[WiFi Detection] ERROR: Failed to create socket for device detection");
+        return NO;
+    }
+
+    // NSLog(@"[WiFi Detection] Socket created successfully");
+
+    // Set socket to non-blocking for timeout control
+    int flags = fcntl(CFSocketGetNative(socket), F_GETFL, 0);
+    fcntl(CFSocketGetNative(socket), F_SETFL, flags | O_NONBLOCK);
+
+    struct sockaddr_in addr;
+    memset(&addr, 0, sizeof(addr));
+    addr.sin_len = sizeof(addr);
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(kParticleSetupConnectionEndpointPort);
+    addr.sin_addr.s_addr = htonl(kParticleSetupConnectionEndpointAddressHex);
+
+    // NSLog(@"[WiFi Detection] Attempting connection to %@:%d...", kParticleSetupConnectionEndpointAddress, kParticleSetupConnectionEndpointPort);
+
+    CFDataRef address = CFDataCreate(kCFAllocatorDefault, (UInt8 *)&addr, sizeof(addr));
+    CFSocketError result = CFSocketConnectToAddress(socket, address, 0.5); // 500ms timeout
+
+    // NSLog(@"[WiFi Detection] Initial connection result: %ld (0=success, 1=error, 2=timeout)", (long)result);
+
+    BOOL isConnected = NO;
+
+    if (result == kCFSocketSuccess || result == kCFSocketTimeout) {
+        // NSLog(@"[WiFi Detection] Waiting for connection to complete (500ms timeout)...");
+        // Even on timeout, check if connection is in progress
+        // Use select() to wait briefly for connection to complete
+        fd_set writefds;
+        FD_ZERO(&writefds);
+        FD_SET(CFSocketGetNative(socket), &writefds);
+
+        struct timeval timeout;
+        timeout.tv_sec = 0;
+        timeout.tv_usec = 500000; // 500ms
+
+        int selectResult = select(CFSocketGetNative(socket) + 1, NULL, &writefds, NULL, &timeout);
+
+        // NSLog(@"[WiFi Detection] Select result: %d (>0 = socket ready, 0 = timeout, <0 = error)", selectResult);
+
+        if (selectResult > 0) {
+            // Check if connection succeeded
+            int error = 0;
+            socklen_t len = sizeof(error);
+            if (getsockopt(CFSocketGetNative(socket), SOL_SOCKET, SO_ERROR, &error, &len) == 0 && error == 0) {
+                // NSLog(@"[WiFi Detection] ✅ SUCCESS: Particle device detected at %@:%d", kParticleSetupConnectionEndpointAddress, kParticleSetupConnectionEndpointPort);
+                isConnected = YES;
+            } else {
+                // NSLog(@"[WiFi Detection] ❌ Connection failed with error code: %d (%s)", error, strerror(error));
+            }
+        } else if (selectResult == 0) {
+            // NSLog(@"[WiFi Detection] ❌ Connection timed out - device not reachable");
+        } else {
+            // NSLog(@"[WiFi Detection] ❌ Select failed with errno: %d (%s)", errno, strerror(errno));
         }
-        NSLog(@"info = %@", info);
-        NSString *SSID = info[@"SSID"];
-        if ([SSID hasPrefix:networkPrefix])
-        {
-            return YES;
-            // TODO: add notification or delegate method
-            // TODO: add reachability change detection
-            
-        }
-//    }
-    
-    return NO;
-    
+    } else {
+        // NSLog(@"[WiFi Detection] ❌ Connection attempt failed immediately");
+    }
+
+    CFRelease(address);
+    CFSocketInvalidate(socket);
+    CFRelease(socket);
+
+    // NSLog(@"[WiFi Detection] Final result: %@", isConnected ? @"CONNECTED" : @"NOT CONNECTED");
+
+    return isConnected;
 }
 
 #pragma mark ParticleSetupConnection delegate methods
