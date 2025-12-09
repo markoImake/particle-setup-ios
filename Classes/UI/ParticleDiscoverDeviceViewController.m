@@ -285,8 +285,8 @@
                             NSLog(@"[WiFi Detection] Connected to Particle device SSID: %@", currentSSID);
                             if (matches) {
                                 NSLog(@"[WiFi Detection] SSID matches Particle device prefix. Starting device query...");
-                                bool ogParticle = ([currentSSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
-                                bool hybridParticle = ([currentSSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt])
+                                bool ogParticle = ([currentSSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefix]);
+                                bool hybridParticle = ([currentSSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt]);
                                 if (ogParticle || hybridParticle) {
                                     NSLog(@"[WiFi Detection] Detected Particle device type: %@", ogParticle ? @"Original" : @"Hybrid");
                                     // save connected prefix ap name to device settings
