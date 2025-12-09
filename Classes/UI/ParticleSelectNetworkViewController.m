@@ -1,3 +1,25 @@
+#include <arpa/inet.h>
+#include <sys/socket.h>
+
+// Returns YES if the device is reachable at its default IP (192.168.0.1:5609)
+static BOOL isDeviceReachableAtDefaultIP(void) {
+    NSString *ip = @"192.168.0.1";
+    int port = 5609;
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock < 0) return NO;
+    struct sockaddr_in addr;
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    inet_pton(AF_INET, [ip UTF8String], &addr.sin_addr);
+    struct timeval timeout;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;
+    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(timeout));
+    setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(timeout));
+    int result = connect(sock, (struct sockaddr *)&addr, sizeof(addr));
+    close(sock);
+    return (result == 0);
+}
 //
 //  ParticleSelectNetworkViewController.m
 //  mobile-sdk-ios
@@ -40,6 +62,7 @@
 @end
 
 @implementation ParticleSelectNetworkViewController
+
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -217,10 +240,11 @@
 }
 
 
--(void)checkPhotonConnection:(id)sender
+// Correct placement of checkPhotonConnection: method
+- (void)checkPhotonConnection:(id)sender
 {
-//    NSLog(@"checkPhotonConnection");
-    if (!([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix] || [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt]))
+    BOOL reachable = isDeviceReachableAtDefaultIP();
+    if (!reachable)
     {
         [self.checkConnectionTimer invalidate];
         [self.delegate willPopBackToDeviceDiscovery];
@@ -242,9 +266,21 @@
 
 -(void)restartDeviceDetectionTimer
 {
+    
     [self.checkConnectionTimer invalidate];
-    self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(checkPhotonConnection:) userInfo:nil repeats:YES];
-
+    self.checkConnectionTimer = nil;
+    
+    // Add a grace period before starting connection checks
+    // This gives the device time to stabilize after command chain completion
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // Only schedule if view is still visible and timer wasn't cancelled
+        if (self.checkConnectionTimer == nil) {
+            self.checkConnectionTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(checkPhotonConnection:) userInfo:nil repeats:YES];
+        }
+        else
+        {
+        }
+    });
 }
 
 
@@ -275,7 +311,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"particleSelectNetworkVC prepareForSegue : %@",segue.identifier);
     [self.checkConnectionTimer invalidate];
 
     if ([[segue identifier] isEqualToString:@"connect"])
