@@ -31,29 +31,12 @@ typedef NS_ENUM(NSInteger, ParticleSetupWifiSecurityType) {
 
 /**
  *  Check if currently connected wifi is the Soft AP device wi-fi network
- *  Uses NEHotspotNetwork API in foreground (verifies network name)
- *  Falls back to socket-based check in background (only checks device reachability)
  *
  *  @param networkPrefix Device Soft AP SSID prefix
  *
  *  @return YES if connected, NO otherwise
  */
 +(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix;
-
-/**
- *  Check if Particle device is reachable via socket connection
- *  This is a simple reachability check that works in background
- *  Note: Does NOT verify the network name, only that device is reachable at 192.168.0.1:5609
- *
- *  @return YES if device is reachable, NO otherwise
- */
-+(BOOL)checkParticleDeviceReachability;
-
-/**
- *  Reset the foreground verification state
- *  Call this when starting a new setup flow to ensure fresh verification is required
- */
-+(void)resetForegroundVerification;
 
 /**
  *  Use to initialize comm manager

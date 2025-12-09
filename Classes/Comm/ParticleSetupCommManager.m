@@ -10,16 +10,16 @@
 
 #import "ParticleSetupCommManager.h"
 #import "ParticleSetupConnection.h"
+#import <SystemConfiguration/CaptiveNetwork.h>
 #import "ParticleSetupSecurityManager.h"
 #import <NetworkExtension/NetworkExtension.h>
-#import <CoreLocation/CoreLocation.h>
+//#import "FastSocket.h"
 
 // new iOS 9 requirements:
 #import "Reachability.h"
 @import UIKit;
 
-// Modern WiFi detection: NEHotspotNetwork (iOS 14+)
-// Socket headers for device communication
+// iOS 26 fix: Socket headers for connection-based WiFi detection
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <arpa/inet.h>
@@ -60,20 +60,8 @@ int const kParticleSetupConnectionEndpointPort = 5609;
 @property (nonatomic, strong) NSString *networkNamePrefix;
 @end
 
-// Static variables to track verification state
-static NSDate *_lastForegroundVerification = nil;
-static NSString *_lastVerifiedSSID = nil;
-static BOOL _wentToBackgroundSinceLastCheck = NO;
-
 
 @implementation ParticleSetupCommManager
-
-+(void)resetForegroundVerification
-{
-    _lastForegroundVerification = nil;
-    _lastVerifiedSSID = nil;
-    _wentToBackgroundSinceLastCheck = NO;
-}
 
 
 //-(instancetype)initWithConnection:(ParticleSetupConnection *)connection
@@ -86,6 +74,7 @@ static BOOL _wentToBackgroundSinceLastCheck = NO;
         self.commandCompletionBlock = nil;
         self.commandSendBlock = nil;
         //        self.ready = NO;
+//        NSLog(@"ParticleSetupCommManager %@ instanciated!",self);
         
         return self;
         
@@ -109,16 +98,24 @@ static BOOL _wentToBackgroundSinceLastCheck = NO;
 
 #pragma mark Particle photon device wifi connection detection methods
 
-// Simple socket-based check - works in background but doesn't verify network name
-+(BOOL)checkParticleDeviceReachability
++(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix
 {
+    // iOS 26 fix: CNCopyCurrentNetworkInfo no longer works reliably
+    // Instead, try to connect to the device endpoint to verify we're on the device network
+    // This is more reliable and doesn't require deprecated APIs
+
+    // NSLog(@"[WiFi Detection] Checking for Particle device connection (prefix: %@)...", networkPrefix);
 
     CFSocketRef socket = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, IPPROTO_TCP, 0, NULL, NULL);
+
     if (socket == NULL) {
+        // NSLog(@"[WiFi Detection] ERROR: Failed to create socket for device detection");
         return NO;
     }
 
-    // Set non-blocking
+    // NSLog(@"[WiFi Detection] Socket created successfully");
+
+    // Set socket to non-blocking for timeout control
     int flags = fcntl(CFSocketGetNative(socket), F_GETFL, 0);
     fcntl(CFSocketGetNative(socket), F_SETFL, flags | O_NONBLOCK);
 
@@ -129,12 +126,19 @@ static BOOL _wentToBackgroundSinceLastCheck = NO;
     addr.sin_port = htons(kParticleSetupConnectionEndpointPort);
     addr.sin_addr.s_addr = htonl(kParticleSetupConnectionEndpointAddressHex);
 
+    // NSLog(@"[WiFi Detection] Attempting connection to %@:%d...", kParticleSetupConnectionEndpointAddress, kParticleSetupConnectionEndpointPort);
+
     CFDataRef address = CFDataCreate(kCFAllocatorDefault, (UInt8 *)&addr, sizeof(addr));
     CFSocketError result = CFSocketConnectToAddress(socket, address, 0.5); // 500ms timeout
+
+    // NSLog(@"[WiFi Detection] Initial connection result: %ld (0=success, 1=error, 2=timeout)", (long)result);
 
     BOOL isConnected = NO;
 
     if (result == kCFSocketSuccess || result == kCFSocketTimeout) {
+        // NSLog(@"[WiFi Detection] Waiting for connection to complete (500ms timeout)...");
+        // Even on timeout, check if connection is in progress
+        // Use select() to wait briefly for connection to complete
         fd_set writefds;
         FD_ZERO(&writefds);
         FD_SET(CFSocketGetNative(socket), &writefds);
@@ -145,149 +149,34 @@ static BOOL _wentToBackgroundSinceLastCheck = NO;
 
         int selectResult = select(CFSocketGetNative(socket) + 1, NULL, &writefds, NULL, &timeout);
 
+        // NSLog(@"[WiFi Detection] Select result: %d (>0 = socket ready, 0 = timeout, <0 = error)", selectResult);
+
         if (selectResult > 0) {
+            // Check if connection succeeded
             int error = 0;
             socklen_t len = sizeof(error);
             if (getsockopt(CFSocketGetNative(socket), SOL_SOCKET, SO_ERROR, &error, &len) == 0 && error == 0) {
+                // NSLog(@"[WiFi Detection] ✅ SUCCESS: Particle device detected at %@:%d", kParticleSetupConnectionEndpointAddress, kParticleSetupConnectionEndpointPort);
                 isConnected = YES;
+            } else {
+                // NSLog(@"[WiFi Detection] ❌ Connection failed with error code: %d (%s)", error, strerror(error));
             }
+        } else if (selectResult == 0) {
+            // NSLog(@"[WiFi Detection] ❌ Connection timed out - device not reachable");
+        } else {
+            // NSLog(@"[WiFi Detection] ❌ Select failed with errno: %d (%s)", errno, strerror(errno));
         }
+    } else {
+        // NSLog(@"[WiFi Detection] ❌ Connection attempt failed immediately");
     }
 
     CFRelease(address);
     CFSocketInvalidate(socket);
     CFRelease(socket);
 
+    // NSLog(@"[WiFi Detection] Final result: %@", isConnected ? @"CONNECTED" : @"NOT CONNECTED");
+
     return isConnected;
-}
-
-+(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix
-{
-    // Modern approach using NEHotspotNetwork API (iOS 14+)
-    // This requires:
-    // 1. "Access WiFi Information" entitlement (com.apple.developer.networking.wifi-info)
-    // 2. CoreLocation permission for precise location (since user manually connects to WiFi)
-
-
-    // Check if app is in background - MUST be called on main thread
-    __block UIApplicationState state;
-    if ([NSThread isMainThread]) {
-        state = [[UIApplication sharedApplication] applicationState];
-    } else {
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            state = [[UIApplication sharedApplication] applicationState];
-        });
-    }
-    if (state == UIApplicationStateBackground || state == UIApplicationStateInactive) {
-
-        // Mark that we went to background (so next foreground check knows to invalidate cache)
-        _wentToBackgroundSinceLastCheck = YES;
-
-        BOOL reachable = [ParticleSetupCommManager checkParticleDeviceReachability];
-        if (reachable) {
-            return YES;  // Allow background check to succeed for notifications
-        } else {
-            return NO;
-        }
-    }
-
-    // App is in FOREGROUND
-    NSLog(@"[WiFi Detection] App state: FOREGROUND ✅");
-
-    // Check if we just came back from background
-    if (_wentToBackgroundSinceLastCheck) {
-        _wentToBackgroundSinceLastCheck = NO;  // Reset flag
-        // Clear old verification data
-        _lastForegroundVerification = nil;
-        _lastVerifiedSSID = nil;
-    }
-
-
-    // PHASE 1: First verify device is reachable via socket
-    BOOL deviceReachable = [ParticleSetupCommManager checkParticleDeviceReachability];
-
-    if (!deviceReachable) {
-        return NO;
-    }
-
-
-    // PHASE 2: Now verify the network name with NEHotspotNetwork
-
-    // PHASE 2 STEP 1: Check if Location Services are enabled on device
-    if (![CLLocationManager locationServicesEnabled]) {
-        return NO;
-    }
-
-    // PHASE 2 STEP 2: Check app's location authorization status
-    CLAuthorizationStatus authStatus = [CLLocationManager authorizationStatus];
-
-    switch (authStatus) {
-        case kCLAuthorizationStatusNotDetermined:
-            return NO;
-
-        case kCLAuthorizationStatusRestricted:
-            return NO;
-
-        case kCLAuthorizationStatusDenied:
-            return NO;
-
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-        case kCLAuthorizationStatusAuthorizedAlways:
-            break;
-
-        default:
-            NSLog(@"[WiFi Detection] ⚠️ Unknown authorization status: %d", (int)authStatus);
-            break;
-    }
-
-
-    __block NSString *currentSSID = nil;
-    __block BOOL completionHandlerCalled = NO;
-    __block NSError *fetchError = nil;
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-
-    [NEHotspotNetwork fetchCurrentWithCompletionHandler:^(NEHotspotNetwork * _Nullable currentNetwork) {
-        completionHandlerCalled = YES;
-
-        if (currentNetwork != nil) {
-            currentSSID = currentNetwork.SSID;
-            NSLog(@"[WiFi Detection] ✅ NEHotspotNetwork returned network object");
-            NSLog(@"[WiFi Detection] SSID: '%@'", currentSSID);
-        } else {
-        }
-        dispatch_semaphore_signal(semaphore);
-    }];
-
-    // Wait up to 5 seconds for the completion handler (increased from 2s due to slow API)
-
-    dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC));
-    long result = dispatch_semaphore_wait(semaphore, timeout);
-
-    if (result != 0) {
-
-        return NO;
-    }
-
-
-    if (currentSSID != nil) {
-        NSLog(@"[WiFi Detection] Comparing SSID '%@' (length: %lu) with prefix '%@' (length: %lu)",
-              currentSSID, (unsigned long)[currentSSID length],
-              networkPrefix, (unsigned long)[networkPrefix length]);
-
-        if ([currentSSID hasPrefix:networkPrefix]) {
-            // Store successful foreground verification
-            BOOL wasFirstVerification = (_lastForegroundVerification == nil);
-            _lastForegroundVerification = [NSDate date];
-            _lastVerifiedSSID = currentSSID;
-
-            return YES;
-        } else {
-            return NO;
-        }
-    } else {
-        return NO;
-    }
 }
 
 #pragma mark ParticleSetupConnection delegate methods
