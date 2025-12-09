@@ -280,14 +280,30 @@
             if (state == UIApplicationStateActive) {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     if ([ParticleSetupCommManager checkParticleDeviceWifiConnection]) {
-                        // save connected prefix ap name to device settings
-                        // NSString *value = ogParticle ? [ParticleSetupCustomization sharedInstance].networkNamePrefix : [ParticleSetupCustomization sharedInstance].networkNamePrefixAlt;
-                        // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                        // [defaults setObject:value forKey:@"particleConnectedPrefix"];
-                        // [defaults synchronize];
-                        [self startPhotonQuery];
+                         NSLog(@"[WiFi Detection] Connected to Particle device WiFi network. check ssid to confirm...");
+                        [ParticleSetupCommManager verifyParticleDeviceSSID:^(BOOL matches, NSString *currentSSID) {
+                            NSLog(@"[WiFi Detection] Connected to Particle device SSID: %@", currentSSID);
+                            if (matches) {
+                                NSLog(@"[WiFi Detection] SSID matches Particle device prefix. Starting device query...");
+                                bool ogParticle = ([currentSSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
+                                bool hybridParticle = ([currentSSID hasPrefix:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt])
+                                if (ogParticle || hybridParticle) {
+                                    NSLog(@"[WiFi Detection] Detected Particle device type: %@", ogParticle ? @"Original" : @"Hybrid");
+                                    // save connected prefix ap name to device settings
+                                    NSString *value = ogParticle ? [ParticleSetupCustomization sharedInstance].networkNamePrefix : [ParticleSetupCustomization sharedInstance].networkNamePrefixAlt;
+                                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                    [defaults setObject:value forKey:@"particleConnectedPrefix"];
+                                    [defaults synchronize];
+                                    [self startPhotonQuery];
+                                }
+
+                            } else {
+                                NSLog(@"[WiFi Detection] SSID does not match Particle device prefix. Ignoring...");
+                            }
+                        }];
                     }
                 });
+
             }
         });
     }

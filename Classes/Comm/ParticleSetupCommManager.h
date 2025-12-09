@@ -38,6 +38,13 @@ typedef NS_ENUM(NSInteger, ParticleSetupWifiSecurityType) {
 +(BOOL)checkParticleDeviceWifiConnection;
 
 /**
+ *  Verify if currently connected WiFi SSID matches Particle device prefix
+ *
+ *  @param completion Completion block with match result and current SSID
+ */
++(void)verifyParticleDeviceSSID:(void(^)(BOOL matches, NSString *currentSSID))completion;
+
+/**
  *  Use to initialize comm manager
  *
  *  @param networkPrefix Device Soft AP SSID prefix

@@ -128,7 +128,7 @@ int const kParticleSetupConnectionEndpointPort = 5609;
          if (currentNetwork != nil) {
 
             NSString *currentSSID = currentNetwork.SSID;
-            BOOL matches = [currentSSID hasPrefix:networkPrefix];
+            BOOL matches = [currentSSID containsString:networkPrefix];
  
 
             NSLog(@"[WiFi Detection] SSID: '%@', Prefix: '%@', Matches: %@",
