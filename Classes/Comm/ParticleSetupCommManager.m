@@ -13,6 +13,8 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import "ParticleSetupSecurityManager.h"
 #import <NetworkExtension/NetworkExtension.h>
+#import "ParticleSetupCustomization.h"
+#import <CoreLocation/CoreLocation.h>
 //#import "FastSocket.h"
 
 // new iOS 9 requirements:
@@ -96,9 +98,56 @@ int const kParticleSetupConnectionEndpointPort = 5609;
         return nil;
 }
 
++(void)verifyParticleDeviceSSID:(void(^)(BOOL matches, NSString *currentSSID))completion
+{
+    // Async SSID verification using NEHotspotNetwork API (iOS 14+)
+    // This requires:
+    // 1. "Access WiFi Information" entitlement
+    // 2. CoreLocation permission for precise location
+ 
+    NSString *networkPrefix = [ParticleSetupCustomization sharedInstance].networkNamePrefix;
+    
+    // Check if Location Services are enabled
+     if (![CLLocationManager locationServicesEnabled]) {
+        if (completion) completion(NO, nil);
+        return;
+     }
+ 
+    // Check app's location authorization status
+     CLAuthorizationStatus authStatus = [CLLocationManager authorizationStatus];
+ 
+    if (authStatus != kCLAuthorizationStatusAuthorizedWhenInUse &&
+        authStatus != kCLAuthorizationStatusAuthorizedAlways) {
+        if (completion) completion(NO, nil);
+        return;
+    }
+ 
+    // Fetch current network SSID
+     [NEHotspotNetwork fetchCurrentWithCompletionHandler:^(NEHotspotNetwork * _Nullable currentNetwork) {
+
+         if (currentNetwork != nil) {
+
+            NSString *currentSSID = currentNetwork.SSID;
+            BOOL matches = [currentSSID hasPrefix:networkPrefix];
+ 
+
+            NSLog(@"[WiFi Detection] SSID: '%@', Prefix: '%@', Matches: %@",
+                 currentSSID, networkPrefix, matches ? @"YES" : @"NO");
+ 
+
+            if (completion) completion(matches, currentSSID);
+         } else {
+           NSLog(@"[WiFi Detection] No network found");
+            if (completion) completion(NO, nil);
+         }
+
+    }];
+ }
+
+
 #pragma mark Particle photon device wifi connection detection methods
 
-+(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix
++(BOOL)checkParticleDeviceWifiConnection
 {
     // iOS 26 fix: CNCopyCurrentNetworkInfo no longer works reliably
     // Instead, try to connect to the device endpoint to verify we're on the device network
@@ -353,7 +402,7 @@ int const kParticleSetupConnectionEndpointPort = 5609;
 {
     if (self.networkNamePrefix)
     {
-        if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:self.networkNamePrefix])
+        if (![ParticleSetupCommManager checkParticleDeviceWifiConnection])
         {
             completion(nil, [NSError errorWithDomain:@"ParticleSetupCommManangerError" code:2003 userInfo:@{NSLocalizedDescriptionKey:@"Not connected to Particle device"}]);
             return NO;

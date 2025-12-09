@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ParticleSetupConnection.h"
+#import "ParticleSetupCustomization.h"
 
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -32,11 +33,9 @@ typedef NS_ENUM(NSInteger, ParticleSetupWifiSecurityType) {
 /**
  *  Check if currently connected wifi is the Soft AP device wi-fi network
  *
- *  @param networkPrefix Device Soft AP SSID prefix
- *
  *  @return YES if connected, NO otherwise
  */
-+(BOOL)checkParticleDeviceWifiConnection:(NSString *)networkPrefix;
++(BOOL)checkParticleDeviceWifiConnection;
 
 /**
  *  Use to initialize comm manager

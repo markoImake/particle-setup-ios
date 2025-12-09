@@ -306,14 +306,14 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
     if (self.currentState == ParticleSetupConnectionProgressStateConnectToWifi)
     {
         [managerForConnect connectAP:^(id responseCode, NSError *error) {
-            while ((([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix]) || ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt])) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
+            while (([ParticleSetupCommManager checkParticleDeviceWifiConnection]) && (self.disconnectRetries < kMaxRetriesDisconnectFromDevice))
             {
                 [NSThread sleepForTimeInterval:2.0];
                 self.disconnectRetries++;
             }
             
             // are we still connected to device?
-            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix] || [ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefixAlt])
+            if ([ParticleSetupCommManager checkParticleDeviceWifiConnection])
             {
                 if (self.connectAPRetries++ >= kMaxRetriesConnectAP)
                 {
@@ -360,7 +360,7 @@ typedef NS_ENUM(NSInteger, ParticleSetupConnectionProgressState) {
    {
        for (int i=0; i<kMaxRetriesReachability-1; i++)
        {
-           if (![ParticleSetupCommManager checkParticleDeviceWifiConnection:[ParticleSetupCustomization sharedInstance].networkNamePrefix])
+           if (![ParticleSetupCommManager checkParticleDeviceWifiConnection])
            {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     NSURL *url = [NSURL URLWithString:@"http://community.grainfather.com/api"];
